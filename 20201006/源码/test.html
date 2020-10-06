@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .dropdown {
+            border: 1px solid red;
+            /* 第一种 */
+            /* width: 160px; */
+        }
+        
+        .box {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 向下弹出 -->
+        <div class="dropdown">
+            <!-- 第一部分 -->
+            <!-- dropdown-toggle:用来控制切换弹出的样式 -->
+            <!-- data-toggle:控制弹出的动作 -->
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            下拉菜单
+            <span class="caret"></span>
+        </button>
+            <!-- 第二部分 -->
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li class="disabled"><a href="">菜单项1</a></li>
+                <li><a href="">菜单项1</a></li>
+                <li><a href="">菜单项1</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="">菜单项2</a></li>
+                <li><a href="">菜单项2</a></li>
+                <li><a href="">菜单项2</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>
