@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    var arr = [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]];
+    // 利用递归实现多维数组转一维数组
+    function fun2(arr, relArr) {
+      if (!Array.isArray(arr)) {
+        return arr;
+      }
+      // 创建存出结果的数组
+      relArr = relArr || [];
+      for (var i = 0; i < arr.length; i++) {
+        // 判断数组里的元素是否为数组
+        if (Array.isArray(arr[i])) {
+          fun2(arr[i], relArr);
+        } else {
+          relArr.push(arr[i]);
+        }
+      }
+      return relArr;
+    }
+    console.log(fun2(arr));
+  </script>
+</html>

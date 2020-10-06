@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #6cf;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">box</div>
+    <button>展开元素</button>
+    <button>闭合元素</button>
+    <button>切换</button>
+  </body>
+  <script>
+    $("button:first-of-type").click(function () {
+      $(".box").slideDown(1000, "linear", function () {
+        console.log("展开成功");
+      });
+    });
+    $("button:nth-of-type(2)").click(function () {
+      $(".box").slideUp(1000, "linear", function () {
+        console.log("闭合成功");
+      });
+    });
+    $("button:last-of-type").click(function () {
+      $(".box").slideToggle(1000, "linear", function () {
+        console.log("切换成功");
+      });
+    });
+  </script>
+</html>

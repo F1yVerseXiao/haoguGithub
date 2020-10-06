@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // num1 = 10;
+    // console.log(num1);
+  </script>
+  <script>
+    "use strict";
+    // 1.变量名必须先声明再使用
+    // num2 = 10;
+    // console.log(num2);
+
+    // 2.不能删除已经声明好的变量
+    // var num3 = 11;
+    // delete num3;
+
+    // 3.普通的函数在严格模式下, this指向为undefined
+    // function func1() {
+    //   console.log(this);
+    // }
+    // func1();
+
+    // 4.严格模式下, 构造函数不加new调用this指向的是undefined, 所以给它赋值就会报错
+    // function Person(uname) {
+    //   this.uname = uname;
+    // }
+    // Person("F1yVerse");
+
+    // 5.严格模式下, 定时器的this指向还是window
+    // setInterval(function () {
+    //   console.log(this);
+    // }, 1000);
+    // setTimeout(function () {
+    //   console.log(this, 'timeout');
+    // }, 1000);
+
+    // 6.严格模式下, 函数里的参数不允许重名
+    // function func1(num, num) {
+    //   console.log(num + num);
+    // }
+    // func1(1, 5);
+
+  </script>
+</html>

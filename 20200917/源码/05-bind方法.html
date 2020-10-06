@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            uname: '张美丽'
+        };
+
+        function fun1(num1, num2) {
+            console.log(this);
+            console.log(num1 + num2);
+        };
+        // fun1(1, 2);
+        fun1.bind(obj, 1, 2)();
+        // 总结:bind()
+        // 1.bind不会立即执行
+        // 2.改变this指向
+        // 3.可以实现继承
+    </script>
+</body>
+
+</html>

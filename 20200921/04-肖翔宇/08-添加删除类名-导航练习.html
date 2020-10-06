@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+        float: left;
+      }
+      a {
+        text-decoration: none;
+        display: block;
+        padding: 15px;
+        color: black !important;
+      }
+      .active {
+        background-color: red !important;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="nav">
+      <ul>
+        <li><a class="active" href="#">版块1</a></li>
+        <li><a href="#">版块2</a></li>
+        <li><a href="#">版块3</a></li>
+        <li><a href="#">版块4</a></li>
+        <li><a href="#">版块5</a></li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    $(".nav ul li a").mouseover(function () {
+      console.log($(this));
+      $(this).addClass("active");
+      $(this).parent().siblings().children().removeClass("active");
+    });
+  </script>
+</html>

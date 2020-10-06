@@ -1,0 +1,29 @@
+* {
+  /* margin: 0;
+  padding: 0; */
+  transition: all 0.25s;
+  user-select: none;
+}
+p {
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  width: 936px;
+  text-align: center;
+  margin: 0px auto;
+  display: none;
+}
+thead {
+  font-weight: 900;
+}
+tr {
+  height: 30px;
+}
+tbody td {
+  cursor: pointer;
+}
+tbody td:hover {
+  color: #fff;
+  background-color: #6cf;
+}

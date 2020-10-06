@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div id="box" class="con">box</div>
+    <script>
+        // 原生
+        // var box = document.getElementById('box');
+        // console.log(box.id);
+        // console.log(box.getAttribute('id'));
+        // box.setAttribute('class', 'con');
+        // 获取属性
+        console.log($('#box').prop('id'));
+        console.log($('#box').prop('class'));
+        // 设置属性
+        $('#box').prop('title', 'prop设置属性');
+        // 设置多个属性
+        $('#box').prop({
+            index: 1,
+            myData: 123
+        });
+        console.dir($('#box').get(0));
+        $('#box').attr({
+            'data-my-name': '张美丽',
+            dataMyIndex: 1
+        });
+        console.log($('#box').data('myName'));
+    </script>
+</body>
+
+</html>

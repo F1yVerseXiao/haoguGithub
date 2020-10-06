@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <h1>添加学生信息</h1>
+
+      <label for="clazz">班级:</label>
+      <input type="text" name="clazz" id="clazz" required /><br />
+
+      <label for="name">姓名:</label>
+      <input type="text" name="name" id="name" required /><br />
+
+      <!--  -->
+      性别:
+      <input
+        class="gender"
+        type="radio"
+        name="gender"
+        value="男"
+        id="man"
+        required
+      />
+      <label for="man">男</label>
+      <input class="gender" type="radio" name="gender" value="女" id="woman" />
+      <label for="woman">女</label><br />
+
+      <label for="age">年龄:</label>
+      <input type="number" name="age" id="age" required /><br />
+
+      <!--  -->
+      爱好:
+      <input type="checkbox" name="hobby" value="吃饭" class="hobby" id="eat" />
+      <label for="eat">吃饭</label>
+      <input
+        type="checkbox"
+        name="hobby"
+        value="睡觉"
+        class="hobby"
+        id="sleep"
+      />
+      <label for="sleep">睡觉</label>
+      <input
+        type="checkbox"
+        name="hobby"
+        value="学习"
+        class="hobby"
+        id="study"
+      />
+      <label for="study">学习</label><br />
+
+      <label for="tel">电话:</label>
+      <input type="tel" name="tel" id="tel" required /><br />
+
+      <label for="address">地址:</label>
+      <select name="address" id="address">
+        <option value="郑州">郑州</option>
+        <option value="安阳">安阳</option>
+        <option value="濮阳">濮阳</option>
+        <option value="鹤壁">鹤壁</option>
+        <option value="新乡">新乡</option>
+        <option value="焦作">焦作</option>
+        <option value="开封">开封</option>
+        <option value="商丘">商丘</option>
+        <option value="周口">周口</option>
+        <option value="许昌">许昌</option>
+        <option value="漯河">漯河</option></select
+      ><br />
+
+      <label for="remark">备注:</label>
+      <textarea name="remark" id="remark" rows="10" required></textarea><br />
+
+      <label for="date">入学时间:</label>
+      <input type="date" name="date" id="date" required /><br />
+
+      <input type="submit" value="保存" />
+      <input type="reset" value="清空" />
+    </form>
+  </body>
+  <script>
+    // 表单提交事件
+    $("form").on("submit", function (e) {
+      console.log("jq");
+      // 班级
+      $("#clazz").val();
+      console.log($("#clazz").val());
+
+      // 姓名
+      $("#name").val();
+      console.log($("#name").val());
+
+      // 年龄
+      $("#age").val();
+      console.log($("#age").val());
+
+      // 爱好
+      var hobby = [];
+      $(".hobby").each(function (a, b) {
+        hobby.push($(this).val());
+      });
+      hobby = hobby.join(",");
+      console.log(hobby);
+
+      // 性别
+      $(".gender:checked").val();
+      console.log($(".gender:checked").val());
+
+      // 电话
+      $("#tel").val();
+      console.log($("#tel").val());
+
+      // 地址
+      $("#address").val();
+      console.log($("#address").val());
+
+      // 备注
+      $("#remark").val();
+      console.log($("#remark").val());
+
+      // 入学时间
+      $("#date").val();
+      console.log($("#date").val());
+
+      var addData = {
+        clazz: $("#clazz").val(),
+        name: $("#name").val(),
+        gender: $(".gender:checked").val(),
+        age: $("#age").val(),
+        hobby: hobby,
+        tel: $("#tel").val(),
+        address: $("#address").val(),
+        remark: $("#remark").val(),
+        date: $("#date").val(),
+      };
+
+      // 调用方法添加学生
+      jqAdd(addData);
+
+      e.preventDefault();
+    });
+
+    // 添加学生函数
+    function jqAdd(addData) {
+      $.ajax({
+        url: "http://localhost:3008/api/student/addStudent",
+        type: "POST",
+        data: addData,
+        success: function (data) {
+          location.href = location.origin;
+          return;
+        },
+        error: function () {
+          alert("服务器错误");
+          return;
+        },
+      });
+    }
+  </script>
+</html>

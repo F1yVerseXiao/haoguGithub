@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      li {
+        float: left;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>红色</li>
+      <li>绿色</li>
+      <li>蓝色</li>
+    </ul>
+  </body>
+  <script>
+    var arr = ["red", "green", "blue"];
+    var lis = document.querySelectorAll("li");
+    for (var i = 0; i < lis.length; i++) {
+      (function (i) {
+        lis[i].onclick = function () {
+          this.style.backgroundColor = arr[i];
+        };
+      })(i);
+    }
+  </script>
+</html>

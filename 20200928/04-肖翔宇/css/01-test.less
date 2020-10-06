@@ -1,0 +1,40 @@
+/* 
+
+  Hello, World!
+
+*/
+* {
+  margin: 0px;
+  height: 0px;
+  transition: all 0.25s;
+}
+@themeColor: #6cf;
+@themeBoxShadow: 0px 0px 30px #6cf;
+@w: 300px;
+@h: @w;
+div {
+  width: 300px;
+  height: 300px;
+  border: @themeColor;
+  box-shadow: @themeBoxShadow;
+}
+ul {
+  width: @w;
+  height: @h;
+  background-color: @themeColor;
+  color: skyblue;
+  li {
+    width: @w - 200px;
+    height: @h - 200px;
+    background-color: #123;
+    a {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background-color: #cba;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // var num = 10;
+      // function fun1() {
+      //     num++;
+      //     console.log(num);
+      // };
+      // 作用域的特点：局部变量当函数调用结束时，销毁
+      // function fun1() {
+      //     var num = 10;
+      //     num++;
+      //     console.log(num);
+      // };
+      // fun1(); //11
+      // fun1(); //11
+
+      // 怎么才能使函数内部的变量驻留在内存中可以实现累加操作呢？
+
+      function fun() {
+        var num = 10;
+        return function () {
+          num++;
+          console.log(num);
+        };
+      }
+      // 可以使函数中的变量长期驻留在内存中
+      var fn = fun();
+      fn(); //11
+      fn(); //12
+      fn = null;
+      var fn2 = fun();
+      fn2();
+    </script>
+  </body>
+</html>

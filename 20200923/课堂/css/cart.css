@@ -1,0 +1,142 @@
+input[type="checkbox"]{
+    display: none
+}
+label{
+    width: 14px;
+    height: 14px;
+    background: url(../images/check.png) no-repeat;
+    display: inline-block;
+}
+label.active{
+    background: url(../images/checked.png) no-repeat;
+}
+
+
+.cart-wrap{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 300px;
+}
+.cart-header{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #444;
+}
+.cart-lists{
+    height: 110px;
+    border-bottom: 1px dashed #ccc;
+}
+.cart-lists li{
+    float: left ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.cart-box .cart-lists li{
+    height: 110px;
+}
+.cart-lists .cart-check{
+    width: 150px;
+}
+.cart-lists .cart-content{
+    width: 570px;
+}
+.cart-lists .cart-price{
+    width: 160px;
+}
+.cart-lists .cart-amount{
+    width: 130px;
+}
+.cart-lists .cart-sum{
+    width: 120px;
+}
+.cart-lists .cart-option{
+    width: 60px;
+}
+
+.cart-box{
+    width: 100%;
+}
+.cart-box .shop-info{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #efefef;
+    margin: 10px 0;
+}
+
+.cart-box .shop-info .all-check{
+    width: 50px;
+    height: 50px;
+}
+
+.cart-lists .cart-check{
+    
+
+}
+
+.cart-content .cart-img{
+    width: 70px;
+    height: 70px;
+    border: 1px solid #ccc;
+}
+.cart-content .cart-img img{
+    width: 70px;
+    height: 70px;
+}
+.cart-content  .cart-text{
+    margin-left: 20px;
+    height: 60px;
+    line-height: 20px;
+    /* 多行文本出现省略号 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.cart-price .price{
+    font-size: 20px;
+    color: #f55;
+}
+.cart-price .price::before{
+    content: "￥";
+}
+
+.cart-sum .price-sum{
+    font-size: 20px;
+    color: #f55;
+}
+.cart-sum .price-sum::before{
+    content: "￥";
+}
+
+
+.cart-amount .amount-box{
+    width: 60px;
+    height: 30px;
+    position: relative;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.cart-amount .amount-box input{
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-right: 1px solid #ccc;
+  
+}
+.cart-amount .amount-box button{
+    width: 29px;
+    height: 15px;
+    position: absolute;
+    left: 31px;
+    border: 0;
+}
+.cart-amount .amount-box .reduce{
+    top: 15px;
+    border-top: 1px solid #cccccc;
+}

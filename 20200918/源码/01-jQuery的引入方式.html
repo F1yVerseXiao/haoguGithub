@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.引入本地jQuery -->
+    <!-- <script src="js/jquery-3.4.1.js"></script> -->
+    <!-- 2.使用CDN的形式引用 -->
+    <!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+
+</head>
+
+<body>
+    <script>
+        console.log(window);
+        // 3.兼容形式
+        window.jQuery || document.write('<script src="js/jquery-3.4.1.js"><\/script>');
+    </script>
+</body>
+
+</html>

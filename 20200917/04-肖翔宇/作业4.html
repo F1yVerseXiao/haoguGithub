@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    console.log("start");
+    for (var i = 0; i < 3; i++) {
+      (function (index) {
+        setTimeout(function () {
+          console.log(index);
+        }, 0);
+      })(i);
+    }
+    // 自上而下执行,先执行一遍for循环但是里面的代码放到最后执行.(先执行同步代码,后执行异步代码).
+    console.log("end");
+  </script>
+</html>

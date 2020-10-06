@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>省级联动</title>
+    <script src="js/jquery-3.4.1.js"></script>
+  </head>
+
+  <body>
+    <select name="" id="selProvince">
+      <option value="">请选择</option>
+    </select>
+    <select name="" id="selCity">
+      <option value="">请选择</option>
+    </select>
+    <select name="" id="selCounty">
+      <option value="">请选择</option>
+    </select>
+    <script>
+      var arrPro = ["河南", "河北", "山东"];
+      var arrCity = [
+        ["郑州", "洛阳", "南阳"],
+        ["石家庄", "邯郸", "保定"],
+        ["菏泽", "青岛", "济南"],
+      ];
+      var arrCou = [
+        [
+          ["金水区", "二七区", "中原区"],
+          ["洛阳县1", "洛阳县1", "洛阳县1"],
+          ["南阳县1", "南阳县1", "南阳县1"],
+        ],
+        [
+          ["石家庄1", "石家庄1", "石家庄1"],
+          ["邯郸1", "邯郸1", "邯郸1"],
+          ["保定1", "保定1", "保定1"],
+        ],
+        [
+          ["菏泽1", "菏泽1", "菏泽1"],
+          ["青岛1", "青岛1", "青岛1"],
+          ["济南1", "济南1", "济南1"],
+        ],
+      ];
+      // 1.添加数据到省
+      for (var i = 0; i < arrPro.length; i++) {
+        // 追加省的内容
+        $("<option>" + arrPro[i] + "</option>").appendTo("#selProvince");
+      }
+      // 2.追加市的数据
+      var proIndex = null;
+      $("#selProvince").change(function () {
+        // 删除上次的记录
+        $("#selCity").children().not(":eq(0)").remove();
+        $("#selCounty").children().not(":eq(0)").remove();
+        // $('#selCity').html('<option value="">请选择</option>');
+        proIndex = $("#selProvince option:selected").index();
+        // proIndex = $(this).children('option:selected').index();
+        var aCity = arrCity[proIndex - 1];
+        // 追加市的具体数据
+        for (var j = 0; j < aCity.length; j++) {
+          $("<option>" + aCity[j] + "</option>").appendTo("#selCity");
+        }
+      });
+      // 3.追加县的数据
+      var cityIndex = null;
+      $("#selCity").change(function () {
+        // 删除上次的记录
+        $("#selCounty").children().not(":eq(0)").remove();
+        cityIndex = $("#selCity option:selected").index();
+        // 获取具体在数组中时第几条数据
+        var aCounty = arrCou[proIndex - 1][cityIndex - 1];
+        // 追加县的具体的数据
+        for (var k = 0; k < aCounty.length; k++) {
+          $("<option>" + aCounty[k] + "</option>").appendTo("#selCounty");
+        }
+      });
+    </script>
+  </body>
+</html>

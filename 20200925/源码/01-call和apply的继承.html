@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 父类
+        function Person(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        };
+
+        function Son(uname, age) {
+            console.log(this);
+            Person.call(this, uname, age);
+            // Person.apply(this, arguments);
+        };
+        var son1 = new Son('张三', 18);
+        console.log(son1.uname);
+        var p1 = new Person('父亲', 60);
+        console.log(p1.uname);
+    </script>
+</body>
+
+</html>

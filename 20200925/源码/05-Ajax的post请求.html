@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        var studentInfo = {
+            clazz: '火花23',
+            name: '王帅帅',
+            age: 18,
+            gender: '男',
+            tel: '1110',
+            hobby: '学习',
+            address: '高新区',
+            remark: '程序员小王子'
+        };
+        $.post('http://localhost:3008/api/student/addStudent', studentInfo, function(data, status, jQxhr) {
+            console.log(data, status, jQxhr);
+        }, 'json');
+    </script>
+</body>
+
+</html>

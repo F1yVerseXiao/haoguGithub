@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>09_实现购物车动态操作</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+      table {
+        width: 600px;
+        text-align: center;
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+      }
+
+      td[colspan="3"] {
+        text-align: right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table id="data">
+      <thead>
+        <tr>
+          <th>商品名称</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>小计</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>iPhone6</td>
+          <td>&yen;<span>4488</span></td>
+          <td>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </td>
+          <td>&yen;<span>4488</span></td>
+        </tr>
+        <tr>
+          <td>iPhone6 plus</td>
+          <td>&yen;<span>5288</span></td>
+          <td>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </td>
+          <td>&yen;<span>5288</span></td>
+        </tr>
+        <tr>
+          <td>iPad Air 2</td>
+          <td>&yen;<span>4288</span></td>
+          <td>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </td>
+          <td>&yen;<span>4288</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total:</td>
+          <td>&yen;<span>14064</span></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <script>
+      $("button").click(function () {
+        var num1 = null;
+        // 点击+的处理
+        if ($(this).text() == "+") {
+          num1 = Number($(this).siblings("span").text());
+          // 购物车指定加的商品加1
+          num1++;
+          // 追加到页面上
+          $(this).siblings("span").text(num1);
+          // 增加小计的值
+          $(this)
+            .parent()
+            .next()
+            .children("span")
+            .text($(this).parent().prev().children("span").text() * num1);
+        } else {
+          // 减号的操作
+          var num2 = null;
+          num2 = Number($(this).siblings("span").text());
+          if (num2 > 0) {
+            if (num2 == 1) {
+              alert("该宝贝不能再少了哦");
+              return;
+            }
+            // 购物车指定加的商品加1
+            num2--;
+            // 追加到页面上
+            $(this).siblings("span").text(num2);
+            // 增加小计的值
+            $(this)
+              .parent()
+              .next()
+              .children("span")
+              .text($(this).parent().prev().children("span").text() * num2);
+          }
+        }
+        // 合计操作
+        var totalEle = $("tbody tr td:last-child span");
+        console.log(totalEle);
+        var sum = 0;
+        // 进行循环操作
+        totalEle.each(function (index, ele) {
+          sum += Number($(ele).text());
+        });
+        // for (var i = 0; i < totalEle.length; i++) {
+        //     sum += Number($(totalEle[i]).text());
+        // }
+        console.log(sum);
+        // 追加合计值
+        $("tfoot tr td span").text(sum);
+      });
+    </script>
+  </body>
+</html>

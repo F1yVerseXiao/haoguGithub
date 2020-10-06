@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <button>点击发送请求</button>
+  </body>
+  <script>
+    $(document).ajaxStart(function () {
+      console.log("jQuery异步JS和XML请求已开始");
+    });
+    $(document).ajaxSend(function () {
+      console.log("jQuery异步JS和XML请求已发送");
+    });
+    $(document).ajaxSuccess(function () {
+      console.log("jQuery异步JS和XML请求处理成功");
+    });
+    $(document).ajaxError(function () {
+      console.log("jQuery异步JS和XML请求处理出现错误");
+    });
+    $(document).ajaxComplete(function () {
+      console.log("jQuery异步JS和XML请求已处理完毕");
+    });
+    $(document).ajaxStop(function () {
+      console.log("jQuery异步JS和XML请求已停止");
+    });
+
+    $("button").click(function () {
+      $.ajax({
+        method: "GET",
+        url: "http://localhost:3008/api/student/getStudent",
+        data: {
+          name: "肖翔宇",
+        },
+        success: function (a, b, c) {
+          console.log(a);
+          console.log(b);
+          console.log(c);
+        },
+      });
+    });
+  </script>
+</html>

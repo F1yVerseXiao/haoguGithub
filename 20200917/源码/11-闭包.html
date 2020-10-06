@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 闭包： 闭包是指有权访问另外一个函数作用域中的变量的函数（不好）
+      // 闭包（closure）：内部函数访问外部函数作用域的变量形成词法环境，构成了闭包(最好)
+      // 解释：innerFun访问了outerFun的里面的局部变量num 构成的词法环境，形成了闭包
+
+      // 闭包的特性：
+      // 1.函数嵌套函数
+      // 2.函数内部可以引用外部的变量和参数
+      // 3.可以使函数中的变量（参数）长期驻留在内存中
+      function outerFun() {
+        var num = 10;
+
+        function innerFun() {
+          console.log(num);
+        }
+        innerFun();
+      }
+      outerFun();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style></style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div id="box">box</div>
+  </body>
+  <script>
+    // 原生写法
+    // var box = document.querySelector("#box");
+    // console.log(box.id);
+    // console.log(box.getAttribute("id"));
+    // box.setAttribute("class", "con");
+
+    // jQuery写法
+    // 获取属性 or 设置元素属性
+    console.log($("#box").attr("id"));
+    $("#box").attr("class", "con");
+
+    // 设置多个
+    $("#box").attr({
+      class: "con",
+      title: "jQuery设置",
+    });
+    console.log($("#box"));
+
+    // 移出
+    $("#box").removeAttr("id");
+    console.log($(".con"));
+  </script>
+</html>

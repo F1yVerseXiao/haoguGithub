@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 高阶函数：符合以下条件其一：
+      // - 参数是函数
+      // - 函数作为返回值
+      // function也是一种数据类型
+      // 1.
+      // function fun1(a, b, callback) {
+      //     console.log(a * b);
+      //     // &&来判定对象是否存在
+      //     callback && callback();
+      // }
+      // fun1(1, 3, function() {
+      //     console.log('回调函数执行了');
+      // });
+      // 2.函数作为返回值
+      function fun2() {
+        var num = 100;
+
+        return function () {
+          console.log(num + "返回了");
+        };
+      }
+      fun2()();
+    </script>
+  </body>
+</html>

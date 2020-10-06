@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+        // 循环绑定
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].onclick = function() {
+        //         var sleep = 10;
+        //         console.log(this);
+        //         this.innerText = '等待(' + sleep + ')';
+        //         var that = this;
+        //         this.disabled = true;
+        //         this.intervalId = setInterval(function() {
+        //             console.log(this);
+        //             if (sleep == 0) {
+        //                 clearInterval(that.intervalId);
+        //                 sleep = 10;
+        //                 that.innerText = '点击';
+        //                 that.disabled = false;
+        //             } else {
+        //                 sleep--;
+        //                 that.innerText = '等待(' + sleep + ')';
+        //             }
+        //         }, 1000);
+        //     }
+        // };
+        // setInterval函数的this 指向改变
+        for (var i = 0; i < btns.length; i++) {
+            // 循环绑定按钮的事件
+            btns[i].onclick = function() {
+                // 指定等待的时间
+                var sleep = 10;
+                // 设置初始的按钮的文本值
+                this.innerText = '等待(' + sleep + ')';
+                this.disabled = true;
+                // 设定定时器使文本值发生改变
+                this.intervalId = setInterval(function() {
+                    // 当等待的时间到达时,清除定时器,还原文本值,改为非禁用
+                    if (sleep == 0) {
+                        clearInterval(this.intervalId);
+                        sleep = 10;
+                        this.innerText = '点击';
+                        this.disabled = false;
+                    } else {
+                        sleep--;
+                        this.innerText = '等待(' + sleep + ')';
+                    }
+                }.bind(this), 1000);
+            }
+        };
+    </script>
+</body>
+
+</html>

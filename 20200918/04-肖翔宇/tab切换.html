@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      li {
+        list-style: none;
+      }
+      .tab {
+        width: 978px;
+        margin: 100px auto;
+      }
+      .tab_list {
+        height: 39px;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+      .tab_list li {
+        float: left;
+        height: 39px;
+        line-height: 39px;
+        padding: 0px 20px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .tab_list .current {
+        background-color: #c81623;
+        color: #fff;
+      }
+      .item {
+        display: none;
+      }
+      .div_show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <div class="tab_list">
+        <li class="current">商品价格</li>
+        <li>规格与包装</li>
+        <li>售后保障</li>
+        <li>商品请假(50000)</li>
+        <li>手机社区</li>
+      </div>
+      <div class="tab_con">
+        <div class="item div_show">商品介绍模块内容</div>
+        <div class="item">规格与包装模块内容</div>
+        <div class="item">售后保障模块内容</div>
+        <div class="item">商品评价（50000）模块内容</div>
+        <div class="item">手机社区模块内容</div>
+      </div>
+    </div>
+  </body>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script>
+    $("li").click(function () {
+      // tab切换
+      $(this).addClass("current").siblings().removeClass("current");
+      // 内容切换
+      // index(): 相对于其同胞元素的 index 位置
+      $(".item")
+        .eq($(this).index())
+        .addClass("div_show")
+        .siblings()
+        .removeClass("div_show");
+    });
+  </script>
+</html>

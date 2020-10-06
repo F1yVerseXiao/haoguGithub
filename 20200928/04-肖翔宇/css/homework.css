@@ -1,0 +1,246 @@
+body {
+  background-color: #f6f6f6;
+}
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  transition: all 0.25s;
+}
+* .layout {
+  width: 1200px;
+  margin: 0px auto;
+}
+a {
+  color: #999;
+}
+a:hover {
+  color: #81acf2;
+  text-decoration: none;
+}
+#pageTop {
+  width: 100%;
+  height: 40px;
+  background-color: #f6f6f6;
+}
+#pageTop .layout {
+  height: 100%;
+  color: #999;
+  font-size: 12px;
+  line-height: 40px;
+}
+#pageTop .layout .icon-zhuye {
+  line-height: 30px;
+}
+#pageTop .layout .icon-tel {
+  color: #81acf2;
+}
+#pageTop .layout li {
+  height: 40px;
+  margin-right: 20px;
+  float: left;
+}
+#pageTop .layout li:last-of-type {
+  margin-right: 0px;
+}
+#pageTop ul:last-of-type {
+  float: right;
+}
+header {
+  width: 100%;
+  height: 40px;
+  padding: 20px 0px;
+  background-color: #fff;
+  border-bottom: 2px solid #81acf2;
+}
+header .layout {
+  height: 100%;
+  position: relative;
+}
+header .layout .icon-search {
+  font-size: 28px;
+  color: #999;
+  position: absolute;
+  left: 718px;
+  top: 5px;
+}
+header .layout .car {
+  font-size: 12px;
+  display: inline-block;
+  width: 105px;
+  padding: 10px 0px;
+  height: 18px;
+  text-align: justify;
+  border: 1px solid #e8e8e8;
+  line-height: 20px;
+  text-align: center;
+  color: #81acf2;
+}
+header .layout input {
+  width: 248px;
+  height: 38px;
+  padding: 0px 15px 0px 37px;
+  outline: none;
+  border: 1px solid #e8e8e8;
+  border-right: none;
+  float: right;
+}
+header .layout button {
+  width: 70px;
+  height: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  outline: none;
+  background-color: #81acf2;
+  float: right;
+  margin-right: 10px;
+}
+header .layout button:hover {
+  background-color: #66b1ff;
+}
+#main1 {
+  width: 1200px;
+  height: 384px;
+  margin: 20px auto 0px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+#main1 .con {
+  overflow: hidden;
+  width: 334px;
+  height: 384px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#main1 .con .top {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+#main1 .con .top::after {
+  content: "";
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
+#main1 .con .top .icon-profile {
+  display: inline-block;
+  font-size: 80px;
+  margin: 10px;
+  color: #81acf2;
+}
+#main1 .con .top a {
+  position: absolute;
+  line-height: 100px;
+  left: 100px;
+  top: 4px;
+  font-size: 14px;
+  color: #81acf2;
+}
+#main1 .con .top a:last-of-type {
+  left: 140px;
+}
+#main1 .con .bottom ul {
+  width: 100%;
+  height: 226px;
+}
+#main1 .con .bottom ul li {
+  width: 111px;
+  height: 113px;
+  box-sizing: border-box;
+  border: 1px solid #efefef;
+  float: left;
+  text-align: center;
+}
+#main1 .con .bottom ul li span {
+  color: #81acf2;
+  font-size: 50px;
+  margin-top: 15px;
+  display: block;
+}
+#main2,
+#main3 {
+  width: 1200px;
+  height: 500px;
+  margin: 40px auto 0px;
+  display: flex;
+  justify-content: space-between;
+}
+#main2 .con,
+#main3 .con {
+  width: 384px;
+  height: 503px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#main2 .con:hover,
+#main3 .con:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+}
+#main2 .con .bottom,
+#main3 .con .bottom {
+  width: 344px;
+  padding: 20px 20px 30px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+#main2 .con .bottom p,
+#main3 .con .bottom p {
+  font-size: 22px;
+  color: #81acf2;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  position: relative;
+}
+#main2 .con .bottom p img,
+#main3 .con .bottom p img {
+  position: absolute;
+  left: 100px;
+  top: 3px;
+}
+#main2 .con .bottom p span,
+#main3 .con .bottom p span {
+  color: #f00;
+  font-size: 30px;
+}
+#main2 .con .bottom span,
+#main3 .con .bottom span {
+  color: red;
+  font-size: 30px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #666;
+}
+#main3 .con .bottom p {
+  text-align: center;
+}
+.divide {
+  width: 1200px;
+  height: 30px;
+  margin: 30px auto;
+  border-left: 3px solid #81acf2;
+}
+.divide p {
+  font-size: 22px;
+  margin-left: 10px;
+  color: #81acf2;
+  float: left;
+}
+.divide p span {
+  font-size: 20px;
+  color: #333;
+}
+.divide a {
+  font-size: 20px;
+  float: right;
+}

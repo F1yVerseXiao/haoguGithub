@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        // 1.创建空元素
+        $('<h2></h2>').appendTo('body');
+        // 2.创建元素和内容
+        $('<h2>创建元素和内容</h2>').appendTo('body');
+        // 3.创建元素并添加属性
+        $('<div>', {
+            id: 'box1',
+            class: 'main',
+            title: '新div元素',
+            click: function() {
+                console.log('通过jQuery创建的');
+            }
+        }).text('div元素').appendTo('body');
+        // 4.简写形式
+        $('<h3>').appendTo('body');
+        $('<h4/>').appendTo('body');
+    </script>
+</body>
+
+</html>

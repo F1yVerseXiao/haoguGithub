@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div class="box">box</div>
+    <div class="con">con</div>
+  </body>
+  <script>
+    $(".box").on("click dblclick mouseover", function () {
+      console.log($(this));
+    });
+    // 删除集合中, 每个元素绑定的事件, 传递参数将解除设定的事件, 不设定参数将删除所有事件
+    $(".box").off("click mouseover");
+  </script>
+</html>

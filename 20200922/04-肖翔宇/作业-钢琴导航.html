@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      #piano {
+        width: 700px;
+        height: 50px;
+        margin: 50px auto;
+        user-select: none;
+      }
+      #piano > div {
+        width: 100px;
+        height: 50px;
+        border: 1px solid #000;
+        border-right: none;
+        float: left;
+        overflow: hidden;
+        position: relative;
+        background-color: #fff;
+        cursor: pointer;
+      }
+      #piano > div > span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50px;
+        background-color: #6cf;
+      }
+      #piano > div:last-of-type {
+        border-right: 1px solid #000;
+      }
+      #piano > div > p {
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 28px;
+        z-index: 999;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="piano">
+      <div id="do">
+        <span></span>
+        <p>DO</p>
+      </div>
+      <div id="re">
+        <span></span>
+        <p>RE</p>
+      </div>
+      <div id="mi">
+        <span></span>
+        <p>MI</p>
+      </div>
+      <div id="fa">
+        <span></span>
+        <p>FA</p>
+      </div>
+      <div id="sol">
+        <span></span>
+        <p>SOL</p>
+      </div>
+      <div id="la">
+        <span></span>
+        <p>LA</p>
+      </div>
+      <div id="si">
+        <span></span>
+        <p>SI</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 动画
+    $("#piano")
+      .children()
+      .hover(
+        function () {
+          $(this).children().eq(0).stop().animate(
+            {
+              top: 0,
+            },
+            "fast"
+          );
+        },
+        function () {
+          $(this).children().eq(0).stop().animate(
+            {
+              top: 50,
+            },
+            "fast"
+          );
+        }
+      );
+
+    // 点击音效
+    var sound = [
+      "static/sound/do.mp3",
+      "static/sound/re.mp3",
+      "static/sound/mi.mp3",
+      "static/sound/fa.mp3",
+      "static/sound/sol.mp3",
+      "static/sound/la.mp3",
+      "static/sound/si.mp3",
+    ];
+
+    var tool = null;
+
+    $("#piano")
+      .children()
+      .each(function (a, b) {});
+
+    $("#piano > div").on("click", function () {
+      console.log(tool);
+      clearTimeout(tool);
+      tool = setTimeout(function () {
+        console.log(tool);
+        $("audio").remove();
+      }, 3000);
+      $("<audio>", {
+        src: sound[$(this).index()],
+        autoplay: true,
+      }).appendTo($(this));v 
+    });
+  </script>
+</html>

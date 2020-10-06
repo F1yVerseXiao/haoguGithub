@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <input type="text" name="uname">
+    <script>
+        // jQuery:提供了2个扩展的方法
+        // jQuery.extend
+        // jQuery.fn.extend
+        // 1.静态方法的添加
+        // var obj = {
+        //     sayHi: function() {
+        //         console.log('您好');
+        //     }
+        // };
+        // // 在对象上直接添加的方法---静态方法 
+        // $.extend(obj);
+        // console.dir($);
+        // jQuery.sayHi();
+        // 2.添加实例化方法
+        // jQuery.fn = jQuery.protyotpe
+        $.fn.extend({
+            eleInputClick: function() {
+                $(this).blur(function() {
+                    alert($(this).val());
+                })
+            }
+        });
+        $('input').eleInputClick();
+    </script>
+</body>
+
+</html>

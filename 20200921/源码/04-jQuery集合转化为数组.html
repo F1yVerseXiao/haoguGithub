@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>段落1</div>
+    <p>段落2</p>
+    <p class="con1">段落3</p>
+    <p>段落4</p>
+    <p>段落5</p>
+    <script>
+        // 1.getElement
+        console.log(document.getElementsByTagName('p'));
+        // 2.querySelectorAll
+        console.log(document.querySelectorAll('p'));
+        // 3.jquery的集合
+        console.log($('p'));
+        // 集合转化成数组
+        console.log($('p').toArray());
+    </script>
+</body>
+
+</html>

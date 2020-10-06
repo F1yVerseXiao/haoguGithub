@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        [class^=col] {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 栅格系统
+
+        超小屏幕         小屏幕          中等屏幕        大屏幕
+        col-xs-*        col-sm-*        col-md-*        col-lg-*
+        <768           768>=&&<992      992<=&&<1200    >=1200
+    
+    -->
+
+
+
+    <!-- container:固定宽度 -->
+    <div class="container">
+        <!-- 栅格行 -->
+        <div class="row">
+            <!-- 占据12份 -->
+            <div class="col-lg-12">col-lg-12</div>
+        </div>
+        <div class="row">
+            <!-- 占据6份 -->
+            <div class="col-lg-6">col-lg-6</div>
+            <div class="col-lg-6">col-lg-6</div>
+        </div>
+        <!-- 占据4份 -->
+        <div class="row">
+            <div class="col-lg-4">col-lg-4</div>
+            <div class="col-lg-4">col-lg-4</div>
+            <div class="col-lg-4">col-lg-4</div>
+        </div>
+        <!-- 占据3份 -->
+        <div class="row">
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+        </div>
+        <div class="row">
+            <!-- 占据1份 -->
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <!-- <div class="col-lg-1">多余</div> -->
+        </div>
+    </div>
+
+</body>
+
+</html>

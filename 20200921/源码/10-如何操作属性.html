@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div id="box">box</div>
+    <script>
+        // 原生
+        // var box = document.getElementById('box');
+        // console.log(box.id);
+        // console.log(box.getAttribute('id'));
+        // box.setAttribute('class', 'con');
+        // jQuery操作属性 attr
+        // 获取属性
+        // console.log($('#box').attr('id'));
+        // // 设置属性
+        // $('#box').attr('class', 'con');
+        // 设置多个属性
+        // $('#box').attr({
+        //     class: 'con',
+        //     title: 'jQuery设置属性'
+        // });
+        // 移除属性
+        $('#box').removeAttr('id');
+        // 总结：自定义属性
+    </script>
+</body>
+
+</html>

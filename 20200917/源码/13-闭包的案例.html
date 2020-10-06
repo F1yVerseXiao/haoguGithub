@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul,
+      li {
+        list-style-type: none;
+      }
+
+      li {
+        float: left;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li>红色</li>
+      <li>黄色</li>
+      <li>蓝色</li>
+    </ul>
+    <script>
+      var arr = ["red", "yellow", "blue"];
+
+      var lis = document.querySelectorAll("li");
+      // for (var i = 0; i < lis.length; i++) {
+      //     // 绑定事件
+      //     // DOM对象的属性保存i
+      //     lis[i].index = i;
+      //     lis[i].onclick = function() {
+      //         this.style.backgroundColor = arr[this.index];
+      //     }
+      // };
+      for (var i = 0; i < lis.length; i++) {
+        // 绑定事件
+        // 使用自执行函数保留i值
+        (function (i) {
+          lis[i].onclick = function () {
+            this.style.backgroundColor = arr[i];
+          };
+        })(i);
+      }
+    </script>
+  </body>
+</html>

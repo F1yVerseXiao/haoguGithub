@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="box2">
+        <div class="box3"></div>
+      </div>
+    </div>
+    <div class="box4"></div>
+  </body>
+  <script>
+    // contains只接受DOM元素, 用来判断参数1元素是否包含参数2元素
+    var box1 = $(".box1").get(0);
+    var box2 = $(".box2").get(0);
+    var box3 = $(".box3").get(0);
+    var box4 = $(".box4").get(0);
+    console.log($.contains(box1, box2));
+    console.log($.contains(box1, box4));
+  </script>
+</html>

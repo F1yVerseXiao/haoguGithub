@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style></style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div id="box" class="con">box</div>
+  </body>
+  <script>
+    // 获取属性
+    console.log($("#box").prop("id"));
+    console.log($("#box").prop("class"));
+    $("#box").prop("title", "prop设置属性");
+    console.log($("#box").prop("title"));
+    // 设置多个属性
+    $("#box").prop({
+      index: 1,
+      myData: 123,
+    });
+    console.dir($("#box"));
+
+    // 可设置自定义属性
+    $("#box").attr({
+      //   myName: "F1yVerse",
+      "data-my-name": "F1yVerse",
+      myAge: 19,
+    });
+    console.log($("#box"));
+    // 设置自定义属性
+    $("#box").data("");
+    console.log($("#box").data("myName"));
+  </script>
+</html>

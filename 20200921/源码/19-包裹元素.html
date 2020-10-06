@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <section>
+            <p>段落1</p>
+            <span>12121</span>
+        </section>
+        <section>
+            <p>段落2</p>
+        </section>
+        <section>
+            <p>段落3</p>
+        </section>
+        <section>
+            <p>段落4</p>
+        </section>
+        <section>
+            <p>段落5</p>
+        </section>
+        <section>
+            <p>段落6</p>
+        </section>
+    </div>
+    <script>
+        // 使用指定的元素分别包裹集合中的每一个元素
+        // $('p').wrap('<div>123</div>');
+        // 使用指定的元素统一包裹集合中的所有元素。
+        // $('p').wrapAll('<div>123</div>');
+        // $('section').wrapInner('<div>');
+        $('p').unwrap();
+    </script>
+</body>
+
+</html>

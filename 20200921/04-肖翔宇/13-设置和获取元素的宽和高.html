@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style>
+      .box {
+        width: 100px;
+        border: 1px solid red;
+        padding: 20px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="box">box</div>
+  </body>
+  <script>
+    $(".box").click(function () {
+      // 获取
+      // console.log($(this).css(["width", "height"]));
+      // 设置(设置不带单位)
+      $(".box").width(200);
+    });
+  </script>
+</html>

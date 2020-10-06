@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script>
+        // 原生的入口函数
+        // window.onload = function() {
+        // var con = document.querySelector('.con');
+        // console.log(con);
+        // }
+    </script>
+    <script>
+        console.log($('div'));
+        // jQuery提供了类似的方法：ready
+        $(document).ready(function() {
+            console.log('jQuery的入口形式');
+            // 查询元素
+
+        });
+        // 简写形式
+        $(function() {
+            console.log('jQuery的简写入口形式');
+        });
+    </script>
+</head>
+
+<body>
+    <div class="con">con</div>
+    <!-- 1.如果获取不到元素原生返回null，jQuery返回是jQuery对象，但length=0
+     -->
+</body>
+
+</html>

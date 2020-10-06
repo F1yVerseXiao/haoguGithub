@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>段落1</div>
+    <p>段落2</p>
+    <p class="con1">段落3</p>
+    <p>段落4</p>
+    <p>段落5</p>
+    <script>
+        console.log($('p'));
+        // 下标从0开始-指定元素其相对于同胞元素的*index*位置
+        console.log($('.con1').index()); //2
+        // 限定范围
+        console.log($('.con1').index('p')); //1
+    </script>
+</body>
+
+</html>

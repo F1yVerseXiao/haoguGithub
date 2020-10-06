@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style>
+      table {
+        width: 600px;
+        text-align: center;
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        border: 1px solid black;
+      }
+      td[colspan="3"] {
+        text-align: right;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <table id="data">
+      <thead>
+        <tr>
+          <th>商品名称</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>小计</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>iPhone6</td>
+          <td>&yen;<span>4488</span></td>
+          <td>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </td>
+          <td>&yen;<span>4488</span></td>
+        </tr>
+        <tr>
+          <td>iPhone6 plus</td>
+          <td>&yen;<span>5288</span></td>
+          <td>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </td>
+          <td>&yen;<span>5288</span></td>
+        </tr>
+        <tr>
+          <td>iPad Air 2</td>
+          <td>&yen;<span>4288</span></td>
+          <td>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </td>
+          <td>&yen;<span>4288</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total:</td>
+          <td>&yen;<span>14064</span></td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+  <script>
+    $("button").click(function () {
+      if ($(this).text() == "+") {
+        // 总量
+        $(this)
+          .prev()
+          .text(Number($(this).prev().text()) + 1);
+        $(this)
+          .parent()
+          .next()
+          .children()
+          .text(
+            Number($(this).prev().text()) *
+              Number($(this).parent().prev().children().text())
+          );
+      } else if ($(this).text() == "-") {
+        // 购买数量判断
+        if ($(this).next().text() == 0) {
+          alert("太少了, 在考虑考虑吧~");
+          return;
+        }
+        // 总量
+        $(this)
+          .next()
+          .text(Number($(this).next().text()) - 1);
+        // 小计
+        $(this)
+          .parent()
+          .next()
+          .children()
+          .text(
+            Number($(this).next().text()) *
+              Number($(this).parent().prev().children().text())
+          );
+      }
+      var totalPrice = 0;
+      for (var i = 0; i < $("tfoot").siblings().eq(1).children().length; i++) {
+        totalPrice += Number(
+          $("tfoot").siblings().eq(1).children()[i].children[3].children[0]
+            .innerText
+        );
+      }
+      $("tfoot").children().children().eq(1).children().text(totalPrice);
+    });
+  </script>
+</html>

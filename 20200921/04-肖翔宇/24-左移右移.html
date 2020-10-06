@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style>
+      .box {
+        width: 800px;
+        margin: 100px auto;
+      }
+      .box div {
+        float: left;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="box">
+      <div class="left">
+        <select multiple name="left" id="left">
+          <option>添加</option>
+          <option>移动</option>
+          <option>修改</option>
+          <option>删除</option>
+        </select>
+      </div>
+      <div class="btn">
+        <input type="button" value=">" id="toRight" />
+        <input type="button" value="<" id="toLeft" />
+        <input type="button" value=">>" id="toAllRight" />
+        <input type="button" value="<<" id="toAllLeft" />
+      </div>
+
+      <div class="right">
+        <select multiple name="right" id="right">
+          <!-- <option>添加</option>
+          <option>移动</option>
+          <option>修改</option>
+          <option>删除</option> -->
+        </select>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 绑定元素
+    $("#toRight").click(function () {
+      console.log($(".left select option:selected"));
+      $(".left select option:selected").appendTo($(".right select"));
+    });
+    $("#toLeft").click(function () {
+      console.log($(".right select option:selected"));
+      $(".right select option:selected").appendTo($(".left select"));
+    });
+  </script>
+</html>

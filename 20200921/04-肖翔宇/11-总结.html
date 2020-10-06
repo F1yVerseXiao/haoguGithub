@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style></style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <p>
+      <label for="hobby">
+        运动
+        <input type="checkbox" name="hobby" id="hobby1" value="运动" />
+        学习
+        <input type="checkbox" name="hobby" id="hobby2" value="学习" />
+        看电影
+        <input type="checkbox" name="hobby" id="hobby3" value="看电影" />
+      </label>
+    </p>
+  </body>
+  <script>
+    console.log(
+      $("#hobby1").change(function () {
+        console.log($(this).prop("checked"));
+        console.log($(this).attr("checked"));
+        // 第二个不可用
+
+        // 通过val获取表单中的value值;
+        console.log($(this).val());
+      })
+    );
+    
+  </script>
+</html>

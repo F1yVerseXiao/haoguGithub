@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {
+            name: '王世英',
+            tel: '12121212121',
+            school: {
+                sname: '清华',
+                grade: 4
+            },
+        };
+        // 1.赋值
+        // var obj2 = obj1;
+        // console.log(obj2 === obj1);
+        // obj2.tel = '1111110';
+        // console.log(obj1);
+        // console.log(obj2);
+        // 2.遍历对象
+        var obj3 = {};
+        for (var key in obj1) {
+            obj3[key] = obj1[key];
+        };
+        obj3.school.grade = 3;
+        obj3.tel = '1111110';
+        console.log(obj1);
+        console.log(obj3);
+        // console.log(obj3 === obj1);
+        // 3.Object.assign():方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+        // var obj4 = {};
+        // Object.assign(obj4, obj1);
+        // console.log(obj4 === obj1);
+        // obj4.school.grade = 3;
+        // console.log(obj1);
+        // console.log(obj4);
+    </script>
+</body>
+
+</html>

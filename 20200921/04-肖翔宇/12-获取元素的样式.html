@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div id="box"></div>
+  </body>
+  <script>
+    // 获取单个属性
+    console.log($("#box").css("border"));
+    // 获取多个属性
+    console.log($("#box").css(["width", "height"]));
+  </script>
+</html>

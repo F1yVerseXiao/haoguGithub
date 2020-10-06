@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  [1,2,[3,4,5,6]]如何转换成`[1,2,3,4,5,6]`;
+        var arr = [1, 2, [3, 4, 5, [6, 7, 8]],
+            [9, 0]
+        ];
+        // 二维数组
+        // function fun1(arr) {
+        //     var newArr = [];
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (Array.isArray(arr[i])) {
+        //             for (var j = 0; j < arr[i].length; j++) {
+        //                 newArr.push(arr[i][j]);
+        //             }
+        //         } else {
+        //             newArr.push(arr[i]);
+        //         };
+        //     };
+        //     return newArr;
+        // };
+        // console.log(fun1(arr));
+        // 利用递归实现多维数组转一维数组
+        function fun2(arr, relArr) {
+            if (!Array.isArray(arr)) {
+                return arr;
+            };
+            // 创建存储结果的数组
+            relArr = relArr || [];
+            for (var i = 0; i < arr.length; i++) {
+                // 判断数组里的元素是否为数组
+                // Object.prototype.toString.call(arr[i])=='[object Array]'
+                if (Array.isArray(arr[i])) {
+                    fun2(arr[i], relArr);
+                } else {
+                    relArr.push(arr[i]);
+                }
+            };
+            return relArr;
+        };
+        console.log(fun2(arr));
+    </script>
+</body>
+
+</html>

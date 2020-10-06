@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+  </head>
+
+  <body>
+    <script>
+      var obj1 = {
+        name: "张美丽",
+        age: 18,
+        gender: "女",
+        school: {
+          sname: "北大",
+          grade: 3,
+        },
+        fun1: function () {
+          console.log("你好1");
+        },
+      };
+      var obj2 = {
+        name: "王世英",
+        tel: "12121212121",
+        fun2: function () {
+          console.log("你好2");
+        },
+        school: {
+          sname: "清华",
+          grade: 4,
+        },
+      };
+      // 1.jQuery.extend([deep], target, object1, [objectN]):破坏了target对象的结构
+      var rel = $.extend(obj1, obj2);
+      console.log(rel);
+      console.log(obj1);
+      console.log(obj2);
+      // 用$.extend({}, obj1, obj2),结果全部合并在{}中,并返回,而且还不破坏结构
+      // var rel = $.extend({}, obj1, obj2);
+      // console.log(rel);
+      // console.log(obj1);
+      // console.log(obj2);
+    </script>
+  </body>
+</html>
+
+</html>

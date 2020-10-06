@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style></style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <ul>
+      <li>ul li1</li>
+      <li>ul li2</li>
+      <li class="test">ul li3</li>
+      <li>ul li4</li>
+      <li>ul li5</li>
+    </ul>
+    <ol>
+      <li>ol li1</li>
+      <li>ol li2</li>
+      <li>ol li3</li>
+      <li>ol li4</li>
+      <li class="test">ol li5</li>
+    </ol>
+    <div>
+      <p>p1</p>
+      <p>p2</p>
+      <p class="test">p3</p>
+      <p id="test">p4</p>
+      <p>p5</p>
+    </div>
+    <span>
+      <i>span</i>
+    </span>
+    <span>span2</span>
+    <ul id="ultest">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul class="ultest"></ul>
+  </body>
+  <script>
+    console.log($("li").first(), $("li").last());
+    console.log($("li").filter(".test"));
+    console.log($("div").has(".test"));
+    console.log($("span").not("i"));
+    console.log($("#ultest").is($("li")));
+    console.log($("li").slice(3));
+    $("li").map(function (a, b) {
+      console.log(a, b, b.innerText);
+      return a, b, b.innerText;
+    });
+  </script>
+</html>

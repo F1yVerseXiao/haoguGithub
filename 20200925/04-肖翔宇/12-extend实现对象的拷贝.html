@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    var obj1 = {
+      name: "F1yVerse",
+      age: 20,
+      gender: 1,
+      school: {
+        sname: "学校1",
+      },
+      sayHi: function () {
+        console.log("你好1");
+      },
+    };
+    var obj2 = {
+      name: "Yuuak1",
+      age: 20,
+      gender: 1,
+      school: {
+        sname: "学校2",
+      },
+      sayHi: function () {
+        console.log("你好2");
+      },
+    };
+    var rel = $.extend(obj1, obj2);
+    console.log(rel);
+    console.log(obj1);
+    console.log(obj2);
+  </script>
+</html>

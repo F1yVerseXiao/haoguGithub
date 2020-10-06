@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style></style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <select name="" id="selProvince">
+      <option value="河南">请选择</option>
+      <option value="河南">河南</option>
+      >
+      <option value="山东">山东</option>
+      >
+      <option value="呆湾">呆湾</option>
+      >
+    </select>
+    <select name="" id="selCity">
+      <option value="">请选择</option>
+    </select>
+    <select name="" id="selCounty">
+      <option value="">请选择</option>
+    </select>
+    <script>
+      var arr = [
+        // 省
+        [
+          "河南",
+          // 市
+          [
+            "郑州",
+            // 县
+            ["中原"],
+            ["二七"],
+            ["金水"],
+          ],
+          [
+            "漯河",
+            // 县
+            ["郾城"],
+            ["源汇"],
+            ["召陵"],
+          ],
+          [
+            "洛阳",
+            // 县
+            ["嵩县"],
+            ["栾川"],
+            ["伊川"],
+          ],
+        ],
+        // 省
+        [
+          "山东",
+          // 市
+          [
+            "济南",
+            // 县
+            ["市中"],
+            ["历下"],
+            ["槐荫"],
+          ],
+          [
+            "临沂",
+            // 县
+            ["兰山"],
+            ["罗庄"],
+            ["河东"],
+          ],
+          [
+            "青岛",
+            // 县
+            ["市南"],
+            ["市北"],
+            ["崂山"],
+          ],
+        ],
+        // 省
+        [
+          "呆湾",
+          // 市
+          [
+            "台北",
+            // 县
+            ["中正"],
+            ["大同"],
+            ["中山"],
+          ],
+          [
+            "桃园",
+            // 县
+            ["中坜"],
+            ["平镇"],
+            ["八德"],
+          ],
+          [
+            "高雄",
+            // 县
+            ["楠梓"],
+            ["左营"],
+            ["鼓山"],
+          ],
+        ],
+      ];
+      $("#selProvince").change(function () {
+        for (key in arr) {
+          if (arr[key][0] == this.value) {
+            var arrCi = [];
+            for (keyCi in arr[key]) {
+              arrCi.push(arr[key][keyCi][0]);
+            }
+            arrCi.shift();
+            inner($("#selCity"), arrCi);
+          }
+        }
+      });
+      $("#selCity").change(function () {
+        for (key in arr) {
+          if (arr[key][0] == $(this).prev().val()) {
+            console.log($(this).prev().val());
+            for (keyS in arr[key]) {
+              if (arr[key][keyS][0] == $(this).val()) {
+                console.log(arr[key][keyS]);
+                inner($("#selCounty"), arr[key][keyS].slice(1));
+              }
+            }
+          }
+        }
+      });
+
+      // 追加至select的函数 参数1: 被加入元素 参数2: 加入元素(一维字数组)
+      function inner(ele, arr) {
+        $(ele).html("<option value=''>请选择</option>");
+        for (key in arr) {
+          $("<option>", {
+            value: arr[key],
+          })
+            .text(arr[key])
+            .appendTo($(ele));
+        }
+      }
+    </script>
+  </body>
+  <script></script>
+</html>

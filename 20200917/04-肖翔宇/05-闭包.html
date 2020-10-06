@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // 闭包:内部函数访问外部函数作用域中的局部变量所形成的词法环境叫做闭包
+
+    // 闭包的特性:
+    // 1.函数嵌套函数
+    // 2.函数内部可以引用外部的变量和参数
+    // 3.可以使函数中的变量(参数)长期驻留在内存中
+    function outFun() {
+      var num = 10;
+      function innerFun() {
+        console.log(num);
+      }
+      innerFun();
+    }
+    outFun();
+  </script>
+</html>

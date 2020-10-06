@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        .box {
+            width: 800px;
+            margin: 100px auto;
+        }
+        
+        .box div {
+            float: left;
+            margin-left: 10px;
+        }
+        
+        select {
+            width: 100px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left">
+            <select name="left" id="left" multiple>
+                <option>添加</option>
+                <option>移动</option>
+                <option>修改</option>
+                <option>删除</option>
+            </select>
+        </div>
+        <div class="btn">
+            <input type="button" value=">" id="toRight"><br>
+            <input type="button" value="<" id="toLeft"><br>
+            <input type="button" value=">>" id="toAllRight"><br>
+            <input type="button" value="<<" id="toAllLeft"><br>
+        </div>
+        <div class="right">
+            <select name="right" id="right" multiple>
+            </select>
+        </div>
+    </div>
+    <script>
+        // 绑定元素
+        $('#toRight').click(function() {
+            console.log($('.left select option:selected'));
+            $('.left select option:selected').appendTo('.right select').prop('selected', false)
+        });
+        $('#toLeft').click(function() {
+            $('.right select option:selected').appendTo('.left select');
+        });
+        $('#toAllRight').click(function() {
+            $('.left select option').appendTo('.right select');
+        });
+        $('#toAllLeft').click(function() {
+            $('.right select option').appendTo('.left select');
+        });
+    </script>
+</body>
+
+</html>

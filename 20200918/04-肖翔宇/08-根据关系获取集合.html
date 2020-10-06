@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="box0" class="box">box0</div>
+      <div id="box1" class="box">
+        <p>第1个段落</p>
+        <p>第2个段落</p>
+        <p>第3个段落</p>
+        <p>第4个段落</p>
+      </div>
+      <div id="box2" class="box">
+        <p>第5个段落</p>
+        <p>第6个段落</p>
+        <p>第7个段落</p>
+        <p>第8个段落</p>
+      </div>
+      <div id="box3" class="box">
+        <p class="paragraph">第9个段落</p>
+        <p class="paragraph">第10个段落</p>
+        <p>第<span>11</span>个段落</p>
+        <p>第<span>12</span>个段落</p>
+        <em>99</em>
+      </div>
+      <div id="box4" class="box foo">box4</div>
+      <div id="box5" class="box foo">box5</div>
+      <div id="box6" class="box foo">box6</div>
+    </div>
+  </body>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script>
+    console.log($(".box").parent());
+    console.log($("#box3").children("p"));
+    console.log($("#box3").find("em"));
+    console.log($("#box2").prev());
+    console.log($("#box2").prevAll());
+    console.log($("#box2").next());
+    console.log($("#box2").nextAll());
+    console.log($("#box2").siblings());
+    console.log($("#box3").hasClass("foo"));
+    console.log($("#box4").hasClass("foo"));
+    console.log($(".box").eq(-2));
+  </script>
+</html>

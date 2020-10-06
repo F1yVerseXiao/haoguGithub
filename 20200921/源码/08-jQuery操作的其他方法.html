@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li class="third-item">list item 3</li>
+        <li id="four-item">list item 4</li>
+        <li>list item 5</li>
+    </ul>
+    <p>Hello<a href="http://www.baidu.com/">百度</a>搜索</p>
+    <p>
+        <span>end测试1</span>
+        <span>end测试2</span>
+    </p>
+    <script>
+        // 在集合中添加新的元素，返回添加后的新集合
+        // console.log($('.third-item').add('#four-item').css('background', 'red'));
+        // // addback:把上次过滤的结果添加到当前的集合中，返回新集合
+        // console.log($('.third-item').nextAll().addBack());
+        // // 查找匹配元素内部所有的子节点（ 包括文本节点）
+        // console.log($('p').contents());
+        // 在jQuery链式调用中使用该方法；在当前调用链中结束最近的过滤操作，然后返回匹配元素的集合到之前的状态。
+        console.log($('p').find('span').css('background', 'blue').end())
+    </script>
+</body>
+
+</html>

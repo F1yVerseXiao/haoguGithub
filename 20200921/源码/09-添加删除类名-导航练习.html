@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        ul,
+        li {
+            list-style-type: none;
+        }
+        
+        .nav ul {
+            width: 980px;
+            margin: 50px auto;
+        }
+        
+        .nav ul li {
+            float: left;
+        }
+        
+        .nav ul li a {
+            color: #666;
+            display: block;
+            padding: 15px;
+        }
+        
+        .nav ul li .active {
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="#" class="active">首页</a></li>
+            <li><a href="#">业务介绍</a></li>
+            <li><a href="#">商品展示</a></li>
+            <li><a href="#">发展历程</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+    <script>
+        $('.nav ul li a').mouseover(function() {
+            // 添加类名
+            console.log($(this));
+            $(this).addClass('active');
+            // $(this).siblings().removeClass('active');
+            $(this).parent().siblings().children().removeClass('active');
+        });
+    </script>
+</body>
+
+</html>

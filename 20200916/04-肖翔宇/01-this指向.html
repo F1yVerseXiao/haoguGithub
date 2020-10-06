@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body>
+    <button id="btn">btn</button>
+  </body>
+  <script>
+    //普通函数的this指向 window
+    function func1() {
+      console.log(this);
+    }
+    //对象的方法(函数), this指向方法的调用者
+    var obj = {
+      uname: "F1yVerse",
+      sayHi: function () {
+        console.log("this > " + this);
+      },
+    };
+    obj.sayHi();
+    //构造函数, this指向实例化对象
+    function Person(uname, age) {
+      this.uname = uname;
+      this.age = age;
+      this.sayHi = function () {
+        console.log(this);
+      };
+    }
+    var p1 = new Person("F1yVerse", 19);
+    console.log(p1.uname);
+    p1.sayHi();
+    //绑定函数的this指向, 是函数调用的绑定着, btn这个按钮的对象
+    var btn = document.querySelector("#btn");
+    btn.onclick = function () {
+      console.log(this);
+    };
+    //立即执行函数的this, 指向window
+    (function () {
+      console.log(this);
+    })();
+    // 定时器中的参数的函数的this指向
+    setInterval(function () {
+      console.log(this);
+    }, 1000);
+  </script>
+</html>

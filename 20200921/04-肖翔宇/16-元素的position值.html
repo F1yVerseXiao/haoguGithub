@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .father {
+        width: 600px;
+        height: 300px;
+        border: 1px solid red;
+        position: relative;
+        margin: 100px auto 0px;
+      }
+      .son {
+        width: 100px;
+        height: 100px;
+        border: 1px solid blue;
+        position: absolute;
+        left: 20px;
+        top: 30px;
+      }
+    </style>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    /> -->
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+  </head>
+  <body>
+    <div class="father">
+      <div class="son"></div>
+    </div>
+  </body>
+  <script>
+      // 只读, 不可修改
+    console.log(console.log($(".son").position()));
+  </script>
+</html>

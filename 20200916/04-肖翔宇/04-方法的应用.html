@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    var num = 10;
+    var str = "F1yVerse";
+    var arr = [7, 3, 5, 5, 6, 0, 8];
+    function func() {
+      console.log("函数");
+    }
+    var date = new Date();
+
+    // 使用原型的方式--判定数据类型
+    console.log(Object.prototype.toString.call(num));
+    console.log(Object.prototype.toString.call(str));
+    console.log(Object.prototype.toString.call(arr));
+    console.log(Object.prototype.toString.call(func));
+    console.log(Object.prototype.toString.call(date));
+    console.log(Object.prototype.toString.call(undefined));
+    // apply方法也一样
+    console.log(Object.prototype.toString.apply(NaN));
+
+    // 数学方法的使用
+    // var max = Math.max(1, 2, 3, 4, 5);
+    var max = Math.max.apply(null, arr);
+    console.log(max);
+  </script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    function fun() {
+      var num = 10;
+      return function () {
+        console.log(++num);
+      };
+    }
+    var rel = fun();
+    rel();
+    rel();
+    rel();
+  </script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <p>
+        <label for="hobby">
+          运动:  <input type="checkbox" name="hobby" id="hobby1" value="运动">
+          学习:  <input type="checkbox" name="hobby" id="hobby2" value="学习">
+        看电影: <input type="checkbox" name="hobby" id="hobby3" value="看电影">
+        </label>
+    </p>
+    <script>
+        $('#hobby1').change(function() {
+            console.log($('#hobby1').prop('checked'));
+            console.log($('#hobby1').attr('checked'));
+            // 通过val获取表单中的value值
+            console.log($('#hobby1').val());
+        });
+    </script>
+</body>
+
+</html>

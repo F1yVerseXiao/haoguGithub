@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>修改学生信息</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #id {
+        cursor: no-drop;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <h1>修改学生信息</h1>
+
+      <label for="id">学号:</label>
+      <input type="text" disabled name="id" id="id" /><br />
+
+      <label for="clazz">班级:</label>
+      <input type="text" name="clazz" id="clazz" required /><br />
+
+      <label for="name">姓名:</label>
+      <input type="text" name="name" id="name" required /><br />
+
+      <!--  -->
+      性别:
+      <input
+        class="gender"
+        type="radio"
+        name="gender"
+        value="男"
+        id="man"
+        required
+      />
+      <label for="man">男</label>
+      <input class="gender" type="radio" name="gender" value="女" id="woman" />
+      <label for="woman">女</label><br />
+
+      <label for="age">年龄:</label>
+      <input type="number" name="age" id="age" required /><br />
+
+      <!--  -->
+      爱好:
+      <input type="checkbox" name="hobby" value="吃饭" class="hobby" id="eat" />
+      <label for="eat">吃饭</label>
+      <input
+        type="checkbox"
+        name="hobby"
+        value="睡觉"
+        class="hobby"
+        id="sleep"
+      />
+      <label for="sleep">睡觉</label>
+      <input
+        type="checkbox"
+        name="hobby"
+        value="学习"
+        class="hobby"
+        id="study"
+      />
+      <label for="study">学习</label><br />
+
+      <label for="tel">电话:</label>
+      <input type="tel" name="tel" id="tel" required /><br />
+
+      <label for="address">地址:</label>
+      <select name="address" id="address">
+        <option value="郑州">郑州</option>
+        <option value="安阳">安阳</option>
+        <option value="濮阳">濮阳</option>
+        <option value="鹤壁">鹤壁</option>
+        <option value="新乡">新乡</option>
+        <option value="焦作">焦作</option>
+        <option value="开封">开封</option>
+        <option value="商丘">商丘</option>
+        <option value="周口">周口</option>
+        <option value="许昌">许昌</option>
+        <option value="漯河">漯河</option></select
+      ><br />
+
+      <label for="remark">备注:</label>
+      <textarea name="remark" id="remark" rows="10" required></textarea><br />
+
+      <label for="date">入学时间:</label>
+      <input type="date" name="date" id="date" required /><br />
+
+      <input type="submit" value="保存" />
+      <input type="reset" value="清空" />
+    </form>
+  </body>
+  <script>
+    // jQuery入口函数
+    $(function () {
+      jqSearch(location.search.split("=")[1]);
+    });
+
+    function jqSearch(name) {
+      $.ajax({
+        url: "http://localhost:3008/api/student/getStudent",
+        type: "get",
+        data: {
+          id: name,
+        },
+        success: function (data) {
+          if (!data.length) {
+            alert("查无此人");
+            return;
+          }
+          // data为数组, 直接传入tbody即可
+          var students = "";
+          // ID
+          var txtId = document.querySelector("#id");
+          txtId.value = location.search.split("=")[1];
+
+          console.log(data);
+
+          // 班级
+          $("#clazz").val(data[0].clazz);
+
+          // 姓名
+          $("#name").val(data[0].name);
+
+          // 年龄
+          $("#age").val(data[0].age);
+
+          // 爱好
+          var hobby = [];
+          var ckbHobby = document.querySelectorAll(".hobby");
+          for (var i = 0; i < $(".hobby").length; i++) {
+            if ($(".hobby")[i].checked) {
+              hobby.push($(".hobby")[i].value);
+            }
+          }
+          data[0].hobby = data[0].hobby.split(",");
+          console.log($(".hobby")[0].value);
+          for (var i = 0; i < $(".hobby").length; i++) {
+            for (var j = 0; j < data[0].hobby.length; j++) {
+              // console.log(ckbHobby[i].value, arr1[0].hobby[j]);
+              if ($(".hobby")[i].value == data[0].hobby[j]) {
+                console.log("1");
+                $(".hobby")[i].checked = true;
+                console.log(data[0].hobby[j]);
+              } else {
+                console.log("0");
+              }
+            }
+          }
+
+          // 性别
+          var gender;
+          var rdoGender = document.querySelectorAll(".gender");
+          for (var i = 0; i < $(".gender").length; i++) {
+            if ($(".gender")[i].value == data[0].gender) {
+              // gender = rdoGender[i];
+              $(".gender")[i].checked = true;
+            }
+          }
+
+          // 电话
+          $("#tel").val(data[0].tel);
+
+          // 地址
+          $("#address").val(data[0].address);
+
+          // 备注
+          $("#remark").val(data[0].remark);
+
+          // 入学时间
+          var date = document.querySelector("#date");
+          console.log(data[0].date);
+          if (data[0].date.indexOf("/") == -1) {
+            data[0].date = data[0].date.split("-");
+          } else {
+            data[0].date = data[0].date.split("/");
+          }
+          console.log(data[0].date);
+          // data[0].date = data[0].date.split("-");
+          console.log(data[0].date);
+
+          data[0].date[1] =
+            data[0].date[1].length == 2 ? data[0].date[1] : 0 + data[0].date[1];
+          console.log(data[0].date[1]);
+
+          data[0].date[2] =
+            data[0].date[2].length == 2 ? data[0].date[2] : 0 + data[0].date[2];
+          console.log(data[0].date[2]);
+          var dateStr =
+            data[0].date[0] + "-" + data[0].date[1] + "-" + data[0].date[2];
+          console.log(dateStr);
+
+          $("#date").val(dateStr);
+          return;
+        },
+        error: function () {
+          alert("错误");
+          return;
+        },
+      });
+    }
+
+    // 表单提交事件
+    $("form").on("submit", function (e) {
+      // 爱好
+      var hobby = [];
+      $(".hobby").each(function (a, b) {
+        hobby.push($(this).val());
+      });
+      hobby = hobby.join(",");
+      console.log(hobby);
+
+      // 性别
+      $(".gender:checked").val();
+      console.log($(".gender:checked").val());
+
+      var updateData = {
+        id: $("#id").val(),
+        clazz: $("#clazz").val(),
+        name: $("#name").val(),
+        gender: $(".gender:checked").val(),
+        age: $("#age").val(),
+        hobby: hobby,
+        tel: $("#tel").val(),
+        address: $("#address").val(),
+        remark: $("#remark").val(),
+        date: $("#date").val(),
+      };
+      // 调用方法修改学生
+      console.log(updateData);
+      jqUpdate(updateData);
+
+      e.preventDefault();
+    });
+
+    // 修改学生函数
+    function jqUpdate(updateData) {
+      $.ajax({
+        url: "http://localhost:3008/api/student/updateStudent",
+        type: "POST",
+        data: updateData,
+        success: function (data) {
+          console.log(updateData);
+          location.href = location.origin;
+          return;
+        },
+        error: function () {
+          alert("服务器错误");
+          return;
+        },
+      });
+    }
+  </script>
+</html>

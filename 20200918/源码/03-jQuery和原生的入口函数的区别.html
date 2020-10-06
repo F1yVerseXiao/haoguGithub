@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        // 2.onload页面中执行一次，$(document).ready()执行多次
+        // 3.window.onload是页面DOM树包括图片加载完毕时，再执行
+        // 4.ready：DOM树加载完成时，即开始执行
+        window.onload = function() {
+            console.log('原生入口1');
+        };
+        window.onload = function() {
+            console.log('原生入口2');
+        };
+        $(function() {
+            console.log('jQuery的入口1');
+        });
+        $(function() {
+            console.log('jQuery的入口2');
+        });
+        // HTML渲染的过程：
+        // 1.开始解析HTML文档
+        // 2.加载外部样式和js的脚本文件
+        // 3.解析执行js的脚本代码
+        // 4.DOM树渲染完成
+        // 5.加载没有完成的外部资源（图片）
+        // 6.页面加载完成
+    </script>
+
+</body>
+
+</html>

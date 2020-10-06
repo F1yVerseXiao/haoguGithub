@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 10;
+        var str = '123';
+        var arr = [1, 2, 3, 4, 5];
+
+        function fun() {
+            console.log('函数');
+        }
+        var date = new Date();
+        // 使用原型的方式--判断数据类型
+        console.log(Object.prototype.toString.call(num));
+        console.log(Object.prototype.toString.call(str));
+        console.log(Object.prototype.toString.call(arr));
+        console.log(Object.prototype.toString.call(fun));
+        console.log(Object.prototype.toString.call(date));
+        console.log(Object.prototype.toString.call(null));
+        console.log(Object.prototype.toString.call(undefined));
+        console.log(Object.prototype.toString.call(NaN));
+        // 也可以用apply
+        console.log(Object.prototype.toString.apply(null));
+
+        // 数学方法的使用
+
+        // var max = Math.max(1, 2, 3, 4, 5);
+        var max = Math.max.apply(Math, arr);
+        console.log(max);
+    </script>
+</body>
+
+</html>

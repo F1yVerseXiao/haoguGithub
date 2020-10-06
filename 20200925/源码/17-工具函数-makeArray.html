@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        // 将类数组转化为数组
+        var newArr1 = $.makeArray($('.box'));
+        var newArr2 = $('.box').toArray();
+        console.log(newArr1);
+        console.log(newArr2);
+    </script>
+</body>
+
+</html>

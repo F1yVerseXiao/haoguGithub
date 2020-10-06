@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 变量：全局变量和局部变量
+      // 1.函数内部可以使用全局变量
+      // 2.函数外部，不可以使用局部变量
+      // 3.当函数执行完时，本作用域的局部变量销毁
+      var num = 100;
+
+      function fun1() {
+        var innerNum = 10;
+        console.log(num);
+      }
+      fun1();
+      // 会报错的
+      console.log(innerNum);
+    </script>
+  </body>
+</html>

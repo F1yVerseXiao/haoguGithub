@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border: 1px solid red;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div>段落1</div>
+    <div class="con">con</div>
+    <div class="con">con<span id="cate">段落2</span></div>
+    <div class="con">con</div>
+    <div class="con">con</div>
+    <div class="con">con</div>
+    <div id="box">box</div>
+    <script>
+        // 1.只是遍历map和each都可以，但是推荐用each
+        // $('div').each(function(index, ele) {
+        //     console.log(index, ele);
+        // });
+        // $('div').map(function(index, ele) {
+        //     console.log(index, ele);
+        // });
+        // 不能接受return值
+        var rel1 = $('div').each(function(index, ele) {
+            return $(ele).text();
+        });
+        var rel2 = $('div').map(function(index, ele) {
+            return $(ele).text();
+        });
+        console.log(rel1);
+        console.log(rel2);
+    </script>
+</body>
+
+</html>

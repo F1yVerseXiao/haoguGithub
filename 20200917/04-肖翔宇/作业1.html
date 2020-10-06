@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // 写一个函数 生成一个随机数，每次调用函数都返回第一次生成的随机数
+
+    function fun1() {
+      // 将当前生成的随机数 放在一个函数中当返回值,延长当前生成随机数的作用范围
+      var num = Math.random();
+      return function () {
+        return num;
+      };
+    }
+    var fn = fun1();
+    console.log(fn());
+    console.log(fn());
+    console.log(fn());
+    console.log(fn());
+  </script>
+</html>

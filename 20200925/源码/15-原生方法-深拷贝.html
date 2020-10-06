@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            uname: '张三',
+            hobby: ['吃饭', '玩'],
+            school: {
+                sname: '清华',
+                grade: 3
+            },
+            sayHi: function() {
+                console.log('您好');
+            }
+        }
+        var newObj = {};
+
+        function deepCopy(newObj, obj) {
+            for (var key in obj) {
+                var item = obj[key];
+                if (item instanceof Array) {
+                    newObj[key] = [];
+                    // 递归
+                    deepCopy(newObj[key], item);
+                } else if (item instanceof Function) {
+                    newObj[key] = new Function('return ' + item.toString())();
+                    console.log(newObj[key]);
+                } else if (item instanceof Object) {
+                    newObj[key] = {};
+                    // 递归
+                    deepCopy(newObj[key], item);
+                } else {
+                    newObj[key] = item;
+                }
+
+            }
+
+        };
+        deepCopy(newObj, obj);
+        newObj.school.grade = 1;
+        console.log(newObj);
+        console.log(obj);
+    </script>
+</body>
+
+</html>

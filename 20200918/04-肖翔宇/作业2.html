@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        transition: all 0.25s;
+        user-select: none;
+      }
+      body {
+        background-color: #000;
+      }
+      #main {
+        margin: 50px auto;
+        width: 895px;
+        height: 666px;
+        border: 5px solid #fff;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-content: space-around;
+      }
+      #main > div {
+        width: 224px;
+        height: 288px;
+        opacity: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div><img src="img/1.jpg" alt="" /></div>
+      <div><img src="img/2.jpg" alt="" /></div>
+      <div><img src="img/3.jpg" alt="" /></div>
+      <div><img src="img/4.jpg" alt="" /></div>
+      <div><img src="img/5.jpg" alt="" /></div>
+      <div><img src="img/6.jpg" alt="" /></div>
+    </div>
+  </body>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script>
+    $("#main").hover(function () {
+      $(this).children().css({
+        opacity: 0.4,
+      });
+      $("#main > div").hover(function () {
+        $(this).css({
+          opacity: 1,
+        });
+        $(this).siblings().css({
+          opacity: 0.4,
+        });
+      });
+      $("#main").mouseleave(function () {
+        console.log($(this).children());
+        $(this).children().css({
+          opacity: 1,
+        });
+      });
+    });
+  </script>
+</html>

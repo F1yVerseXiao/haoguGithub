@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style>
+      div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid red;
+        text-align: center;
+        line-height: 50px;
+        font-size: 12px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div>小圆点1</div>
+    <div>小圆点2</div>
+    <div>小圆点3</div>
+    <div>小圆点4</div>
+    <div>小圆点5</div>
+  </body>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script>
+    // 排他思想
+    $("div").click(function () {
+      // this指向触发此事件的事件源
+      $(this).css("background-color", "red");
+      // 链式编程
+      $(this).siblings("div").css("background-color", "");
+    });
+  </script>
+</html>

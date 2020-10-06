@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    var obj1 = {
+      name: "F1yVerse",
+      tel: 15729356789,
+      school: {
+        sname: "学校1",
+        grade: 4,
+      },
+    };
+
+    // 1.赋值
+    var obj2 = obj1;
+    console.log(obj2 === obj1); //true
+
+    // 2.遍历对象
+    var obj3 = {};
+    for (var key in obj1) {
+      obj3[key] = obj1[key];
+    }
+    obj3.school.grade = 3;
+    obj3.tel = "12138";
+    console.log(obj1);
+    console.log(obj3);
+    console.log(obj3 === obj1); //false
+    // 3. Object.assign(); 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象. 他将返回目标对象
+  </script>
+</html>

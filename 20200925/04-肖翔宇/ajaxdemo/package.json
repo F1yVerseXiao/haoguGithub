@@ -1,0 +1,12 @@
+{
+    "name": "ajaxdemo",
+    "version": "1.0.0",
+    "description": "ajax讲解案例",
+    "main": "server.js",
+    "author": "许老师",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.9.3",
+        "express": "^4.10.2"
+    }
+}

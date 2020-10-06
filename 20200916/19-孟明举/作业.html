@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .big {
+        width: 530px;
+        margin: 20px auto;
+      }
+
+      input {
+        width: 60px;
+        height: 20px;
+        outline: none;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin: 20px 0 0 30px;
+        text-align: center;
+      }
+
+      th {
+        width: 100px;
+        height: 20px;
+        border: 1px solid #000;
+      }
+
+      th:nth-child(2) {
+        width: 200px;
+      }
+
+      td {
+        width: 100px;
+        height: 20px;
+        border: 1px solid #000;
+        text-align: center;
+        line-height: 20px;
+      }
+
+      td:nth-child(2) {
+        width: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="big">
+      <div class="small">
+        <p>
+          按照价格查询 <input type="number" id="txt1" /> -
+          <input type="number" id="txt2" />
+          <button id="search">搜索</button> 按照商品名称查询
+          <input type="text" id="txt3" /> <button id="query">查询</button>
+        </p>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>产品名称</th>
+            <th>价格</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script>
+      var txt1 = document.querySelector("#txt1");
+      var txt2 = document.querySelector("#txt2");
+      var txt3 = document.querySelector("#txt3");
+      var oSearch = document.querySelector("#search");
+      var oQuery = document.querySelector("#query");
+      var oTbody = document.querySelector("tbody");
+
+      var arr = [
+        [1, "小米", "3999"],
+        [2, "OPPO", "999"],
+        [3, "荣耀", "1299"],
+        [4, "华为P20", "2999"],
+        [5, "华为P30", "3999"],
+      ];
+
+      function autoAdd(arr, target) {
+        target.innerHTML = "";
+        for (var i = 0; i < arr.length; i++) {
+          target.innerHTML +=
+            "<tr><td>" +
+            arr[i][0] +
+            "</td>" +
+            "<td>" +
+            arr[i][1] +
+            "</td>" +
+            "<td>" +
+            arr[i][2] +
+            "</td>";
+        }
+      }
+      autoAdd(arr, oTbody);
+
+      oSearch.onclick = function () {
+        if (txt1.value != "" && txt2.value == "") {
+          txt2.value = "3999";
+        } else if (txt1.value == "" && txt2.value != "") {
+          txt1.value = "0";
+        } else if (txt1.value == "" && txt2.value == "") {
+          txt1.value = "0";
+          txt2.value = "3999";
+        }
+        var newArr = arr.filter(function (value) {
+          return (
+            (Number(value[2]) >= txt1.value &&
+              Number(value[2]) <= txt2.value) ||
+            (Number(value[2]) <= txt1.value && Number(value[2]) >= txt2.value)
+          );
+        });
+        autoAdd(newArr, oTbody);
+      };
+      oQuery.onclick = function () {
+        autoAdd(arr, oTbody);
+        if (txt3.value != "") {
+          var newArr = arr.filter(function (value) {
+            return value[1].indexOf(txt3.value) != -1;
+          });
+          autoAdd(newArr, oTbody);
+        } else {
+          alert("请输入您要找手机名称");
+        }
+
+        txt3.value = "";
+      };
+    </script>
+  </body>
+</html>

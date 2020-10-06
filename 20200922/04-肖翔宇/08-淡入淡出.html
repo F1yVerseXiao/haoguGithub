@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #6cf;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <button>go</button>
+    <button>back</button>
+  </body>
+  <script>
+    // 淡入, 淡出 display opacity
+
+    // $("button:first-of-type").click(function () {
+    //   $(".box").fadeIn(1000, "linear", function () {
+    //     console.log("淡入");
+    //   });
+    // });
+    // $("button:last-of-type").click(function () {
+    //   $(".box").fadeOut(1000, "linear", function () {
+    //     console.log("淡出");
+    //   });
+    // });
+
+    // 淡入+淡出(切换)
+    $("button:first-of-type").click(function () {
+      $(".box").fadeToggle(1000, "linear", function () {
+        console.log("淡入淡出");
+      });
+    });
+  </script>
+</html>

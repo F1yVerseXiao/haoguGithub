@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box1">box1
+        <span>box111</span>
+    </div>
+    <div class="box2">box2</div>
+    <div class="box4">box4</div>
+    <span>文本内容</span>
+    <script>
+        $('div').click(function() {
+            console.log(this);
+        });
+        // $('div').remove().appendTo('body');
+        // 从页面上删除集合中的所有元素及其内容，但是保留事件处理程序
+        // $('div').detach().appendTo('body');
+        // 删除集合中所有元素的内容，元素本身不会被删除。
+        $('.box1').empty();
+    </script>
+</body>
+
+</html>

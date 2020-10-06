@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    console.log("start");
+    setTimeout(function () {
+      console.log("你猜我输出在哪");
+    }, 0);
+    console.log("end");
+    for (var i = 0; i < 10; i++) {
+      console.log(i);
+    }
+
+    console.log('///////////////////////////////')
+
+    console.log("start");
+    for (var i = 0; i < 3; i++) {
+      (function (index) {
+        setTimeout(function () {
+          console.log(index);
+        }, 0);
+      })(i);
+    }
+    console.log("end");
+  </script>
+</html>

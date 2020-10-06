@@ -1,0 +1,26 @@
+@w: 1000px - 900;
+@h: @w;
+@bgc: #6cf;
+* {
+  transition: all 0.25s;
+}
+.box() {
+  margin-bottom: 10px;
+  &:hover {
+    background-color: @bgc / 2;
+  }
+  .little {
+    width: 100px;
+    height: 100px;
+    background-color: @bgc / 3;
+    p {
+      color: #fff;
+    }
+  }
+}
+.box {
+  .box();
+  width: @w * 3;
+  height: @h * 3;
+  background-color: @bgc;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>多个里面筛选1个</li>
+        <li>多个里面筛选2个</li>
+        <li>多个里面筛选3个</li>
+        <li>多个里面筛选4个</li>
+        <li>多个里面筛选5个</li>
+        <li>多个里面筛选6个</li>
+    </ul>
+    <ol>
+        <li>多个里面筛选7个</li>
+        <li>多个里面筛选8个</li>
+        <li>多个里面筛选9个</li>
+        <li>多个里面筛选10个</li>
+        <li>多个里面筛选11个</li>
+        <li>多个里面筛选12个</li>
+    </ol>
+    <script>
+        console.log($('li'));
+        console.log($('li:first'));
+        console.log($('li:last'));
+        // 下标的偶数--下标从0开始
+        console.log($('li:even'));
+        // 下标的奇数
+        console.log($('li:odd'));
+        // 选择第n个匹配元素（从0开始）
+        console.log($('li:eq(3)'));
+        // 选择第n个匹配元素之后的元素(不包含自己)
+        console.log($('li:gt(3)'));
+        // 选择第n个匹配元素之前的元素(不包含自己)
+        console.log($('li:lt(3)'));
+    </script>
+</body>
+
+</html>

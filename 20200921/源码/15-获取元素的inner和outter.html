@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            border: 1px solid red;
+            padding: 20px;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">box</div>
+    <script>
+        $('.box').click(function() {
+            // innerWidth = width + padding
+            // innerHeight = height + padding
+            console.log($('.box').innerHeight());
+            console.log($('.box').innerWidth());
+            // outterWidth = width + padding + border + [margin]
+            // outterHeight = height + padding + border + [margin]
+            console.log($('.box').outerHeight());
+            console.log($('.box').outerWidth());
+            console.log($('.box').outerHeight(true));
+            console.log($('.box').outerWidth(true));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/index.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="top"></div>
+    <div id="aside">
+      <div class="aside">main1</div>
+      <div class="aside">main2</div>
+      <div class="aside">main3</div>
+      <div class="aside">main4</div>
+      <div class="aside">main5</div>
+      <div id="goTop" class="aside">回到顶部</div>
+    </div>
+    <div class="main" id="main1">main1</div>
+    <div class="main" id="main2">main2</div>
+    <div class="main" id="main3">main3</div>
+    <div class="main" id="main4">main4</div>
+    <div class="main" id="main5">main5</div>
+  </body>
+  <script></script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul,
+      li {
+        list-style: none;
+      }
+
+      .header {
+        height: 400px;
+        background: red;
+      }
+
+      .headerc {
+        height: 100px;
+        width: 100%;
+        background: #000;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      .wrap {
+        width: 100%;
+        height: auto;
+      }
+
+      .floor {
+        height: 500px;
+        width: 100%;
+      }
+
+      .aside {
+        width: 100px;
+        height: auto;
+        position: fixed;
+        left: 50px;
+        top: 200px;
+        border: 1px solid #ccc;
+        background: #efefef;
+        display: none;
+      }
+
+      .aside li {
+        height: 40px;
+        line-height: 40px;
+        border-bottom: 1px solid #ccc;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .aside li.active {
+        color: #fff;
+        background: red;
+      }
+
+      .aside li:hover {
+        color: #fff;
+        background: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="headerc">固定定位</div>
+    <div class="header">头部</div>
+    <div class="wrap">
+      <div class="floor" style="background: skyblue">男装</div>
+      <div class="floor" style="background: pink">女装</div>
+      <div class="floor" style="background: yellowgreen">童装</div>
+      <div class="floor" style="background: blanchedalmond">老年装</div>
+      <div class="floor" style="background: slateblue">大杂烩</div>
+    </div>
+    <!-- 侧边导航 -->
+    <ul class="aside">
+      <li class="active">男装</li>
+      <li>女装</li>
+      <li>童装</li>
+      <li>老年装</li>
+      <li>大杂烩</li>
+      <li class="gotop">回顶部</li>
+    </ul>
+  </body>
+  <script src="js/index.js"></script>
+</html>

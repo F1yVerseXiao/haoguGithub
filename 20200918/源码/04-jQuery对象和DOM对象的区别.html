@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+  </head>
+
+  <body>
+    <div class="con1">div</div>
+    <div class="con2">div</div>
+    <div class="con3">div</div>
+    <script>
+      var eles = document.getElementsByTagName("div");
+      var qsEles = document.querySelectorAll("div");
+      var jQeles = $("div");
+      console.log(eles);
+      console.log(qsEles);
+      console.log(jQeles);
+      // 1.使用下标的形式获取DOM对象
+      console.log(eles[0]);
+      console.log(qsEles[0]);
+      console.log(jQeles[0]);
+      // 2.通过get()方法获取DOM对象
+      console.log(jQeles.get(1));
+    </script>
+  </body>
+</html>

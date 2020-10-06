@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        transition: all 0.25s;
+        user-select: none;
+      }
+      #box {
+        margin: 100px auto 0px;
+        text-align: center;
+      }
+      button {
+        border: none;
+        outline: none;
+        display: inline-block;
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+        border-radius: 25px;
+        background-color: #000;
+        color: #6cf;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #6cf;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <button>赞(0)</button>
+      <button>赞(0)</button>
+      <button>赞(0)</button>
+      <button>赞(0)</button>
+    </div>
+  </body>
+  <script>
+    var btns = document.querySelectorAll("button");
+    function add() {
+      var value = 1;
+      return function () {
+        this.innerText = "赞(" + value++ + ")";
+      };
+    }
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].onclick = add();
+    }
+  </script>
+</html>

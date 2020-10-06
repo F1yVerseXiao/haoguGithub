@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    var obj = {
+      uname: "F1yVerse",
+    };
+    function func1(num1, num2) {
+      console.log(this);
+      console.log(num1 + num2);
+    }
+    // func1(1, 2);
+    func1.bind(obj, 1, 2)();
+    // 总结bind()
+    // 1.bind不会立即执行, 需要在后面加上括号
+    // 2.改变this指向
+    // 3.可以实现继承
+  </script>
+</html>

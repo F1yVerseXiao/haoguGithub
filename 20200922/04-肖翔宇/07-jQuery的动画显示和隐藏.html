@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: #6cf;
+        float: left;
+      }
+      .con {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">box</div>
+    <div class="con">con</div>
+  </body>
+  <script>
+    // $(".box").hover(
+    //   function () {
+    //     $(this).hide(500, function () {
+    //       console.log("隐藏");
+    //     });
+    //   },
+    //   function () {
+    //     $(this).show(500, function () {
+    //       console.log("显示");
+    //     });
+    //   }
+    // );
+
+    // $(".con").click(function () {
+    //   $(".box").toggle(1000, function () {
+    //     console.log("切换");
+    //   });
+    // });
+
+    // 显示隐藏: width height opacity display
+
+    // 自定义动画
+    $(".con").click(function () {
+      $(".box").animate(
+        // 样式(必须)
+        {
+          width: 500,
+          height: 500,
+        },
+        // 下方可选
+        2000, //用时
+        "linear", //效果(linear为匀速), swing为慢快慢
+        //回调函数
+        function () {
+          console.log("动画完成");
+        }
+      );
+    });
+  </script>
+</html>

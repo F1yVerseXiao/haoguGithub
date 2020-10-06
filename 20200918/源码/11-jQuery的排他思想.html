@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+      div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid red;
+        text-align: center;
+        line-height: 50px;
+        font-size: 12px;
+        float: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>小圆点1</div>
+    <div>小圆点2</div>
+    <div>小圆点3</div>
+    <div>小圆点4</div>
+    <div>小圆点5</div>
+    <script>
+      // 排他思想
+      $("div").click(function () {
+        $(this).css("background-color", "red");
+        // 链式编程
+        $(this).siblings("div").css("background-color", "");
+      });
+    </script>
+  </body>
+</html>

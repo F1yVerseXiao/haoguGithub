@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <p>文段1</p>
+    <div class="con1">div</div>
+    <div class="con2">div</div>
+    <div class="con3">div</div>
+    <div id="box1">box1</div>
+    <!-- 选择作为`div`元素且位于其后的所有`p`元素 -->
+    <p>文段2</p>
+    <p>文段3</p>
+    <script>
+        // var eleJq1 = $('选择器');
+        var eleJq1 = $('.con1');
+        var eleJq2 = $('#box1');
+        // 并集
+        var eleJq3 = $('div,p');
+        // 交集
+        var eleJq4 = $('div.con1');
+        // 兄弟选择器
+        var eleJq5 = $('div~p');
+        // console.log(eleJq1);
+        // console.log(eleJq2);
+        // console.log(eleJq3);
+        // console.log(eleJq4);
+        console.log(eleJq5);
+    </script>
+</body>
+
+</html>

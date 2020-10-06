@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">box</div>
+    <div class="con">con</div>
+    <div class="test">test</div>
+  </body>
+  <script>
+    // 1.相同点: 不覆盖
+    // $(".box").click(function () {
+    //   console.log("click绑定");
+    // });
+    // $(".box").click(function () {
+    //   console.log("click绑定");
+    // });
+    // $(".con").click(function () {
+    //   console.log("click绑定1");
+    // });
+    // $(".box").on("click", function () {
+    //   console.log("on绑定的事件");
+    // });
+    // $(".con").on("click", function () {
+    //   console.log("on绑定的事件1");
+    // });
+
+    // 2.不同点1:可以一次绑定多个事件
+    // on可以一次绑定多个事件
+    $(".box").on("click mouseover", function () {
+      console.log("on绑定");
+      console.log(event);
+      console.log(event.type);
+    });
+    // 2.不同点2-on:可以一次绑定多个事件
+    $(".box").click(function () {
+      $("<button class='clickBtn'>clickBtn</button>").appendTo(".test");
+    });
+    $(".con").on("click", function () {
+      $("<button class='onBtn'>onBtn</button>").appendTo(".test");
+    });
+    // 给动态生成的元素绑定
+    $(".clickBtn").click(function () {
+      console.log("clickBtn点击了");
+    });
+    $(".onBtn").on("click", ".onBtn", function () {
+      console.log("onBtn点击了");
+    });
+  </script>
+</html>

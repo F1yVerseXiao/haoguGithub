@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="box0" class="box">box0</div>
+        <div id="box1" class="box">
+            <p>第1个段落</p>
+            <p>第2个段落</p>
+            <p>第3个段落</p>
+            <p>第4个段落</p>
+        </div>
+        <div id="box2" class="box">
+            <p>第5个段落</p>
+            <p>第6个段落</p>
+            <p>第7个段落</p>
+            <p>第8个段落</p>
+        </div>
+        <div id="box3" class="box">
+            <p class="paragraph">第9个段落</p>
+            <p class="paragraph">第10个段落</p>
+            <p>第<span>11</span>个段落</p>
+            <p>第<span>12</span>个段落</p>
+            <em>99</em>
+        </div>
+        <div id="box4" class="box foo">box4</div>
+        <div id="box5" class="box foo">box5</div>
+        <div id="box6" class="box foo">box6</div>
+    </div>
+    <script>
+        // 父亲
+        // console.log($('.paragraph').parent());
+        // // 所有祖先元素
+        // console.log($('.paragraph').parents());
+        // // 直接的孩子
+        // console.log($('#box3').children());
+        // // 指定孩子获取
+        // console.log($('#box3').children('em'));
+        // (*selector*).find(*filter*)(重点)
+        // 返回元素中匹配选择器的后代元素--但是必须指定后代元素*filter*必需
+        // console.log($('#box3').find('span'));
+        // 前面
+        // console.log($('#box3').prev());
+        // console.log($('#box3').prevAll());
+        // // 后面
+        // console.log($('#box3').next());
+        // console.log($('#box3').nextAll());
+        // // 所有的兄弟元素--不包含自己
+        // console.log($('#box3').siblings());
+        // 检查当前元素是否含有某个特定的类,如有返回true
+        // console.log($('div').hasClass('container'));
+        console.log($('.box'));
+        // eq下标
+        // 返回包含指定索引元素的新集合。参数可以为负数，表示从集合结尾开始计算
+        console.log($('.box').eq(2));
+        console.log($('.box').eq(-1));
+    </script>
+</body>
+
+</html>

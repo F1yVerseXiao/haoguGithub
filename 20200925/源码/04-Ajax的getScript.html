@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box">box</div>
+    <script>
+        // jQuery.get(url, [data], [callback], [type])
+        // $.get('http://localhost:3008/load/javascript', function(data, status, jQxhr) {
+        //     console.log(data);
+        //     console.log(status);
+        //     console.log(jQxhr);
+        // }, 'script');
+        $.getScript('http://localhost:3008/load/javascript', function(data, status, jQxhr) {
+            console.log(data);
+            console.log(status);
+            console.log(jQxhr);
+        });
+    </script>
+</body>
+
+</html>

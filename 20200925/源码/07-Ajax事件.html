@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <button>
+        点击发送请求
+    </button>
+    <script>
+        // 注册 ajaxStart 事件处理程序
+        $(document).ajaxStart(function() {
+            console.log('ajaxStart');
+        });
+        // 注册 ajaxSend 事件处理程序
+        $(document).ajaxSend(function() {
+            console.log('ajaxSend');
+        });
+        // 注册 ajaxSuccess 事件处理程序
+        $(document).ajaxSuccess(function() {
+            console.log('ajaxSuccess');
+        });
+
+        // 注册 ajaxError 事件处理程序
+        $(document).ajaxError(function() {
+            console.log('ajaxError');
+        });
+        // 注册 ajaxComplete 事件处理程序
+        $(document).ajaxComplete(function() {
+            console.log('ajaxComplete');
+        });
+        // 注册 ajaxStop 事件处理程序
+        $(document).ajaxStop(function() {
+            console.log('ajaxStop');
+        });
+        // 使用ajax函数的方法去设置
+        $('button').click(function() {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:3008/api/student/getStudent',
+                data: {
+                    name: '张运'
+                },
+                success: function(data, status, jQxhr) {
+                    console.log(data, status, jQxhr);
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>

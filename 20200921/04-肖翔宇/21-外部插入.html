@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <style></style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box4">box4</div>
+    <span>文本内容</span>
+  </body>
+  <script>
+    // 向集合中元素的前面插入内容 -- 兄弟关系
+    // $("div").before('<div class="box3">box3</div>');
+    //
+    // $('<div class="box3">box3</div>').insertBefore("div");
+    $('<div class="box3">box3</div>').insertAfter("div");
+  </script>
+</html>

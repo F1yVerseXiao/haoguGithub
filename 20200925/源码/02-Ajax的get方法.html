@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        // jQuery.get(url, [data], [callback], [type])
+        $.get('http://localhost:3008/api/student/getStudent', {
+            name: '张运'
+        }, function(data, status, jQxhr) {
+            console.log(data);
+            console.log(status);
+            console.log(jQxhr);
+        }, 'json');
+    </script>
+</body>
+
+</html>

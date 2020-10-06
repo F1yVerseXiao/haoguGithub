@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <script>
+        // 1.普通的函数this指向--window
+        function fun1() {
+            console.log(this);
+        }
+        fun1();
+        // 2.对象的方法(函数),this指向方法的调用者
+        var obj = {
+            uname: '张美丽',
+            sayHi: function() {
+                console.log('对象的调用');
+                console.log(this);
+            }
+        }
+        obj.sayHi();
+        // 3.构造函数的this指向,this指向实例化的对象
+        function Person(uname) {
+            this.uname = uname;
+            this.sayHi = function() {
+                console.log(this);
+            }
+        };
+        var p1 = new Person('张美丽');
+        console.log(p1.uname);
+        p1.sayHi();
+        // 4.绑定函数的this指向,是函数调用的绑定者,btn这个按钮的对象
+        var btn = document.getElementById('btn');
+        btn.onclick = function() {
+            console.log(this);
+        };
+        // 5.立即执行函数的this指向的是window
+        (function() {
+            console.log(this);
+        })();
+        // 6.定时器中的参数的函数的this指向window
+        setTimeout(function() {
+            console.log(this);
+        }, 1000);
+    </script>
+</body>
+
+</html>

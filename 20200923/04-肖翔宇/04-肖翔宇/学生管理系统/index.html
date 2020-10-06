@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>主页</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        margin: 0px auto;
+        border-collapse: collapse;
+        text-align: center;
+      }
+      td {
+        padding: 5px 10px;
+      }
+      input {
+        display: inline-block !important;
+        width: 200px !important;
+        height: 33px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table table-hover table-borderless" border="1">
+      <thead>
+        <tr style="text-align: left">
+          <td colspan="11">
+            <input class="form-control" type="text" id="txtName" />
+            <button class="btn-primary btn" id="btnGetALl">获取所有学生</button>
+            <button class="btn-primary btn" id="btnGetByName">
+              通过姓名获取
+            </button>
+            <button class="btn-primary btn" id="btnAdd">添加学生</button>
+          </td>
+        </tr>
+        <tr>
+          <td>学号</td>
+          <td>班级</td>
+          <td>姓名</td>
+          <td>性别</td>
+          <td>年龄</td>
+          <td>电话</td>
+          <td>爱好</td>
+          <td>地址</td>
+          <td>备注</td>
+          <td>日期</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+  <script>
+    // jQuery入口函数
+    // 获取所有学生
+    $(function () {
+      jqSearch();
+    });
+
+    // 姓名输入框非空验证(jQuery)
+    $("#btnGetByName").click(function () {
+      if (!$("#txtName").val().trim()) {
+        alert("请输入值");
+        $("txtName").focus();
+        return;
+      }
+      jqSearch($("#txtName").val().trim());
+    });
+
+    // jQuery添加学生按钮点击事件(跳转至新增学生页面)
+    $("#btnAdd").click(function () {
+      location.href = "add.html";
+    });
+
+    // 删除按钮点击事件
+    $("tbody").on("click", ".aDel", function () {
+      // $(this).parent().siblings().eq(0).text() 被删除者ID
+      jqDelete($(this).parent().siblings().eq(0).text());
+    });
+
+    // 修改按钮点击事件
+    $("tbody").on("click", ".aEdit", function () {
+      // $(this).parent().siblings().eq(0).text() 被修改者ID
+      location.href =
+        "http://localhost:3008/edit.html?id=" +
+        $(this).parent().siblings().eq(0).text();
+    });
+
+    // 删除函数
+    function jqDelete(id) {
+      $.ajax({
+        url: "http://localhost:3008/api/student/removeStudent",
+        type: "get",
+        data: {
+          id: id,
+        },
+        success: function (data) {
+          jqSearch();
+          return;
+        },
+        error: function () {
+          alert("服务器错误");
+          return;
+        },
+      });
+    }
+
+    // 查询函数
+    function jqSearch(name) {
+      $.ajax({
+        url: "http://localhost:3008/api/student/getStudent",
+        type: "get",
+        data: {
+          name: name,
+        },
+        success: function (data) {
+          if (!data.length) {
+            alert("查无此人");
+            return;
+          }
+          // data为数组, 直接传入tbody即可
+          var students = "";
+          for (var i = 0; i < data.length; i++) {
+            if (data[i].date.indexOf("/") != -1) {
+              data[i].date = data[i].date.split("/").join("-");
+            }
+            students +=
+              "<tr><td>" +
+              data[i].id +
+              "</td>" +
+              "<td>" +
+              data[i].clazz +
+              "</td>" +
+              "<td>" +
+              data[i].name +
+              "</td>" +
+              "<td>" +
+              data[i].gender +
+              "</td>" +
+              "<td>" +
+              data[i].age +
+              "</td>" +
+              "<td>" +
+              data[i].tel +
+              "</td>" +
+              "<td>" +
+              data[i].hobby +
+              "</td>" +
+              "<td>" +
+              data[i].address +
+              "</td>" +
+              "<td>" +
+              data[i].remark +
+              "</td>" +
+              "<td>" +
+              data[i].date +
+              "</td><td><a href='javascript:;' class='aEdit'>修改</a>&emsp;<a href='javascript:;' class='aDel'>删除</a></td></tr>";
+          }
+          $("tbody").html(students);
+          return;
+        },
+        error: function () {
+          alert("错误");
+          return;
+        },
+      });
+    }
+  </script>
+</html>

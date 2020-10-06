@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    $.get(
+      "http://localhost:3008/api/student/getStudent",
+      {
+        name: "肖翔宇",
+      },
+      function (data, status, jqXhr) {
+        console.log(data);
+        console.log(status);
+        console.log(jqXhr);
+      },
+      "json"
+    );
+  </script>
+</html>

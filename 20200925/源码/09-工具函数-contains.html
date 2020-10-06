@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2">
+            <div class="box3"></div>
+        </div>
+    </div>
+    <div class="box4"></div>
+    <script>
+        var box1 = document.getElementsByClassName('box1')[0];
+        var box2 = document.getElementsByClassName('box2')[0];
+        var box3 = document.getElementsByClassName('box3')[0];
+        var box4 = document.getElementsByClassName('box4')[0];
+        // var box1 = $('.box1').get(0);
+        // var box2 =  $('.box2').get(0);
+        // $.contains( container, contained)
+        console.log($.contains(box1, box3));
+        console.log($.contains(box1, box4));
+    </script>
+</body>
+
+</html>

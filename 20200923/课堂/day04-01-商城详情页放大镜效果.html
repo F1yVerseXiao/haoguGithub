@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 100%;
+        }
+
+        .wrap .content {
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .wrap .content .small {
+            width: 398px;
+            height: 398px;
+            border: 1px solid #ccc;
+        }
+
+        .wrap .content .small img {
+            width: 398px;
+            height: 398px;
+        }
+
+        .wrap .content .small .mask {
+            width: 150px;
+            height: 150px;
+            background: rgba(0, 0, 0, .5);
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            display: none;
+        }
+
+        .wrap .content .slide {
+            width: 400px;
+            height: 90px;
+        }
+
+        .wrap .content .slide .prev,
+        .wrap .content .slide .next {
+            width: 40px;
+            height: 90px;
+            float: left;
+            background: rgba(0, 0, 0, .5);
+            cursor: pointer;
+        }
+
+        .wrap .content .slide .slide-wrap {
+            width: 320px;
+            height: 90px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wrap .content .slide .slide-wrap ul {
+            width: 9999px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .wrap .content .slide .slide-wrap ul li {
+            width: 58px;
+            height: 58px;
+            border: 1px solid #ccc;
+            float: left;
+            margin: 15px 5px;
+            cursor: pointer;
+        }
+
+        .wrap .content .slide .slide-wrap .slide-list li img {
+            width: 58px;
+            height: 58px;
+        }
+
+        .wrap .content .big {
+            width: 450px;
+            height: 450px;
+            overflow: hidden;
+            position: absolute;
+            left: 410px;
+            top: 0;
+            border: 1px solid #ccc;
+            display: none;
+
+        }
+
+        .wrap .content .big img {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="height: 100px;background-color: #eee;"></header>
+    <div class="wrap">
+        <div class="content">
+            <div class="small">
+                <img src="images/001.jpg" alt="">
+                <div class="mask"></div>
+            </div>
+            <div class="big">
+                <img src="images/001.jpg" id="bigImg" alt="">
+            </div>
+            <div class="slide">
+                <div class="prev"></div>
+                <div class="slide-wrap">
+                    <ul class="slide-list">
+                        <li><img src="images/001.jpg" alt=""></li>
+                        <li><img src="images/002.jpg" alt=""></li>
+                        <li><img src="images/003.jpg" alt=""></li>
+                        <li><img src="images/004.jpg" alt=""></li>
+                        <li><img src="images/001.jpg" alt=""></li>
+                        <li><img src="images/002.jpg" alt=""></li>
+                        <li><img src="images/003.jpg" alt=""></li>
+                        <li><img src="images/004.jpg" alt=""></li>
+                    </ul>
+                </div>
+                <div class="next"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery1.12.4.js"></script>
+    <script>
+
+        $(function () {
+
+            $(".prev").click(function () {
+                // 把最后一张 放到最前面
+                $(".slide-list li:last").prependTo($(".slide-list"))
+                $(".slide-list").css("left", "-70px")
+                $(".slide-list").animate({
+                    left: 0
+                })
+            })
+
+            $(".next").click(function () {
+                $(".slide-list").animate({
+                    left: "-70px"
+                }, function () {
+                    $(".slide-list li:first").appendTo($(".slide-list"))
+                    $(".slide-list").css("left", "0")
+                })
+            })
+
+            // 鼠标距离浏览器左边框的距离  -   大盒子左偏移量 - mask的一半
+
+            $(".small").on("mouseover", function () {
+                $(".mask").show()
+                // $(".mask").css{
+                //     width
+                // }
+                $(".big").show()
+            })
+            $(".small").on("mouseout", function () {
+                $(".mask").hide()
+                $(".big").hide()
+            })
+
+
+            $(".small").on("mousemove", function (e) {
+                var maskLeft = e.clientX - $(".small").offset().left - $(".mask").width() / 2
+                var maskTop = e.clientY - $(".small").offset().top - $(".mask").height() / 2
+
+                if (maskLeft <= 0) {
+                    maskLeft = 0
+                } else if (maskLeft > $(".small").width() - $(".mask").width()) {
+                    maskLeft = $(".small").width() - $(".mask").width()
+                }
+
+                if (maskTop <= 0) {
+                    maskTop = 0
+                } else if (maskTop > $(".small").height() - $(".mask").height()) {
+                    maskTop = $(".small").height() - $(".mask").height()
+                }
+
+                $(".mask").css({
+                    left: maskLeft,
+                    top: maskTop
+                })
+
+                // maskLeft/(小box-mask) == bigLeft/(大图片-大盒子 )
+
+                var scaleLeft = maskLeft / ($(".small").width() - $(".mask").width())
+                var scaleTop = maskTop / ($(".small").height() - $(".mask").height())
+
+                var bigLeft = -1 * scaleLeft * ($("#bigImg").width() - $('.big').width())
+                var bigTop = -1 * scaleTop * ($("#bigImg").height() - $('.big').height())
+                $("#bigImg").css({
+                    left: bigLeft,
+                    top: bigTop
+                })
+
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

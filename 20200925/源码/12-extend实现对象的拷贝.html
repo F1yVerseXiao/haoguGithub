@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        var obj1 = {
+            name: '张美丽',
+            age: 18,
+            gender: '女',
+            school: {
+                sname: '北大',
+                grade: 3
+            }
+        };
+        var obj2 = {
+            name: '王世英',
+            tel: '12121212121',
+            school: {
+                sname: '清华',
+                grade: 4
+            },
+        };
+        // 1.jQuery.extend([deep], target, object1, [objectN]):破坏了target对象的结构
+        // var rel = $.extend(false, {}, obj1, obj2);
+        // // 如果修改obj2的school属性
+        // // 复杂数据类型
+        // obj2.school.grade = 1;
+        // obj2.tel = 110;
+        // console.log(rel);
+        // console.log(obj2);
+        // 1.浅拷贝:是把被拷贝对象的复杂数据类型的地址拷贝给了目标对象,修改一个即会影响另外一个
+        // 2.深拷贝:前面加true,把被拷贝对象的复杂数据类型的创建一个新的地址给目标对象,修改任何一个,都不会影响另外一个
+        var rel = $.extend(true, {}, obj1, obj2);
+        // 如果修改obj2的school属性
+        // 复杂数据类型
+        obj2.school.grade = 1;
+        obj2.tel = 110;
+        console.log(rel);
+        console.log(obj2);
+    </script>
+</body>
+
+</html>

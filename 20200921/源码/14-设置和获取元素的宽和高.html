@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            border: 1px solid red;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">box</div>
+    <script>
+        $('.box').click(function() {
+            // 获取和设置
+            // console.log($('.box').width());
+            // console.log($('.box').height());
+            // 设置不带单位
+            $('.box').width(200);
+
+        });
+    </script>
+</body>
+
+</html>

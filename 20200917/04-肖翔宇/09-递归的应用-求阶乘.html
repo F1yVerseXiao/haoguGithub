@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    function fun1(num) {
+      if (num == 1) {
+        return 1;
+      }
+      return num * fun1(num - 1);
+    }
+    // console.log(fun1(1));
+    // console.log(fun1(2));
+    // console.log(fun1(3));
+    // console.log(fun1(4));
+    // console.log(fun1(5));
+    // console.log(fun1(6));
+    // console.log(fun1(7));
+    // console.log(fun1(8));
+    // console.log(fun1(9));
+    // console.log(fun1(10));
+    for (var i = 1; i <= 21; i++) {
+      console.log(i + "的阶乘为" + fun1(i));
+    }
+  </script>
+</html>
